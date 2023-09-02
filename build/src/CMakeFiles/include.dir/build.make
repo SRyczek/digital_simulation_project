@@ -69,28 +69,28 @@ include src/CMakeFiles/include.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/include.dir/flags.make
 
-src/CMakeFiles/include.dir/lib.cpp.o: src/CMakeFiles/include.dir/flags.make
-src/CMakeFiles/include.dir/lib.cpp.o: ../src/lib.cpp
-src/CMakeFiles/include.dir/lib.cpp.o: src/CMakeFiles/include.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/include.dir/lib.cpp.o"
-	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/include.dir/lib.cpp.o -MF CMakeFiles/include.dir/lib.cpp.o.d -o CMakeFiles/include.dir/lib.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp
+src/CMakeFiles/include.dir/user.cpp.o: src/CMakeFiles/include.dir/flags.make
+src/CMakeFiles/include.dir/user.cpp.o: ../src/user.cpp
+src/CMakeFiles/include.dir/user.cpp.o: src/CMakeFiles/include.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/include.dir/user.cpp.o"
+	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/include.dir/user.cpp.o -MF CMakeFiles/include.dir/user.cpp.o.d -o CMakeFiles/include.dir/user.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp
 
-src/CMakeFiles/include.dir/lib.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/include.dir/lib.cpp.i"
-	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp > CMakeFiles/include.dir/lib.cpp.i
+src/CMakeFiles/include.dir/user.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/include.dir/user.cpp.i"
+	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp > CMakeFiles/include.dir/user.cpp.i
 
-src/CMakeFiles/include.dir/lib.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/include.dir/lib.cpp.s"
-	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp -o CMakeFiles/include.dir/lib.cpp.s
+src/CMakeFiles/include.dir/user.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/include.dir/user.cpp.s"
+	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp -o CMakeFiles/include.dir/user.cpp.s
 
 # Object files for target include
 include_OBJECTS = \
-"CMakeFiles/include.dir/lib.cpp.o"
+"CMakeFiles/include.dir/user.cpp.o"
 
 # External object files for target include
 include_EXTERNAL_OBJECTS =
 
-src/libinclude.a: src/CMakeFiles/include.dir/lib.cpp.o
+src/libinclude.a: src/CMakeFiles/include.dir/user.cpp.o
 src/libinclude.a: src/CMakeFiles/include.dir/build.make
 src/libinclude.a: src/CMakeFiles/include.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libinclude.a"

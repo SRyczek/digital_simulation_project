@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp" "src/CMakeFiles/include.dir/lib.cpp.o" "gcc" "src/CMakeFiles/include.dir/lib.cpp.o.d"
+  "/home/seb/Desktop/projects/digital_simulation_project/src/user.cpp" "src/CMakeFiles/include.dir/user.cpp.o" "gcc" "src/CMakeFiles/include.dir/user.cpp.o.d"
   )
 
 # Targets to which this target links.

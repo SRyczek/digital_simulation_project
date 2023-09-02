@@ -1,8 +1,8 @@
 [
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
-  "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/include.dir/lib.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp",
-  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/lib.cpp"
+  "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/include.dir/user.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/user.cpp"
 },
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",

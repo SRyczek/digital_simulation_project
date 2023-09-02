@@ -144,30 +144,6 @@ include/fast:
 	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/build
 .PHONY : include/fast
 
-lib.o: lib.cpp.o
-.PHONY : lib.o
-
-# target to build an object file
-lib.cpp.o:
-	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/lib.cpp.o
-.PHONY : lib.cpp.o
-
-lib.i: lib.cpp.i
-.PHONY : lib.i
-
-# target to preprocess a source file
-lib.cpp.i:
-	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/lib.cpp.i
-.PHONY : lib.cpp.i
-
-lib.s: lib.cpp.s
-.PHONY : lib.s
-
-# target to generate assembly for a file
-lib.cpp.s:
-	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/lib.cpp.s
-.PHONY : lib.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -192,6 +168,30 @@ main.cpp.s:
 	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+user.o: user.cpp.o
+.PHONY : user.o
+
+# target to build an object file
+user.cpp.o:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/user.cpp.o
+.PHONY : user.cpp.o
+
+user.i: user.cpp.i
+.PHONY : user.i
+
+# target to preprocess a source file
+user.cpp.i:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/user.cpp.i
+.PHONY : user.cpp.i
+
+user.s: user.cpp.s
+.PHONY : user.s
+
+# target to generate assembly for a file
+user.cpp.s:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/user.cpp.s
+.PHONY : user.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -202,12 +202,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... include"
 	@echo "... main"
-	@echo "... lib.o"
-	@echo "... lib.i"
-	@echo "... lib.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... user.o"
+	@echo "... user.i"
+	@echo "... user.s"
 .PHONY : help
 
 

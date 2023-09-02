@@ -2,7 +2,7 @@ project(SimulationProject)  #the same name as root project
 
 add_executable(main main.cpp)
 
-add_library(include lib.cpp) 
+add_library(include user.cpp) 
 
 target_link_libraries(main PUBLIC include)
 
