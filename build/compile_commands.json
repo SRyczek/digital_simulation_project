@@ -6,6 +6,11 @@
 },
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
+  "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/include.dir/base.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/base.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/base.cpp"
+},
+{
+  "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
   "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/main.dir/main.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/main.cpp",
   "file": "/home/seb/Desktop/projects/digital_simulation_project/src/main.cpp"
 }

@@ -144,6 +144,30 @@ include/fast:
 	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/build
 .PHONY : include/fast
 
+base.o: base.cpp.o
+.PHONY : base.o
+
+# target to build an object file
+base.cpp.o:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/base.cpp.o
+.PHONY : base.cpp.o
+
+base.i: base.cpp.i
+.PHONY : base.i
+
+# target to preprocess a source file
+base.cpp.i:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/base.cpp.i
+.PHONY : base.cpp.i
+
+base.s: base.cpp.s
+.PHONY : base.s
+
+# target to generate assembly for a file
+base.cpp.s:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/base.cpp.s
+.PHONY : base.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -202,6 +226,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... include"
 	@echo "... main"
+	@echo "... base.o"
+	@echo "... base.i"
+	@echo "... base.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

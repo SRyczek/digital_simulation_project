@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/include.dir/base.cpp.o"
+  "CMakeFiles/include.dir/base.cpp.o.d"
   "CMakeFiles/include.dir/user.cpp.o"
   "CMakeFiles/include.dir/user.cpp.o.d"
   "libinclude.a"
