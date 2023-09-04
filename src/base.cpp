@@ -10,7 +10,7 @@ Base::Base(double t_position) {
 }
 
 Base::~Base() {
-    cout << "Stacja przestala istniec" << endl;
+    cout << "Station deleted" << endl;
 
 }
 

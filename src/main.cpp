@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <unistd.h>
 #include "../include/base.hpp"
 #include "../include/user.hpp"
 
@@ -14,10 +15,12 @@ int main() {
 
     User testUser;
 
-    while(testUser.getPosition() < 5000) {
+    while (testUser.getPosition() < 5000) {
         testUser.updatePosition();
-        cout << "Test user power" << testUser.calculatePower(baseFirst.getPosition()) << endl;
-
+        cout << "Position: " << testUser.getPosition() << endl;
+        cout << "Test user power1" << testUser.calculatePower(baseFirst.getPosition()) << endl;
+        cout << "Test user power2" << testUser.calculatePower(baseSecond.getPosition()) << endl << endl;
+        usleep(50000);
     }
 
     return 0;
