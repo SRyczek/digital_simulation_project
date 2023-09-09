@@ -192,6 +192,54 @@ main.cpp.s:
 	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+network.o: network.cpp.o
+.PHONY : network.o
+
+# target to build an object file
+network.cpp.o:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/network.cpp.o
+.PHONY : network.cpp.o
+
+network.i: network.cpp.i
+.PHONY : network.i
+
+# target to preprocess a source file
+network.cpp.i:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/network.cpp.i
+.PHONY : network.cpp.i
+
+network.s: network.cpp.s
+.PHONY : network.s
+
+# target to generate assembly for a file
+network.cpp.s:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/network.cpp.s
+.PHONY : network.cpp.s
+
+simulator.o: simulator.cpp.o
+.PHONY : simulator.o
+
+# target to build an object file
+simulator.cpp.o:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/simulator.cpp.o
+.PHONY : simulator.cpp.o
+
+simulator.i: simulator.cpp.i
+.PHONY : simulator.i
+
+# target to preprocess a source file
+simulator.cpp.i:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/simulator.cpp.i
+.PHONY : simulator.cpp.i
+
+simulator.s: simulator.cpp.s
+.PHONY : simulator.s
+
+# target to generate assembly for a file
+simulator.cpp.s:
+	cd /home/seb/Desktop/projects/digital_simulation_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/include.dir/build.make src/CMakeFiles/include.dir/simulator.cpp.s
+.PHONY : simulator.cpp.s
+
 user.o: user.cpp.o
 .PHONY : user.o
 
@@ -232,6 +280,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... network.o"
+	@echo "... network.i"
+	@echo "... network.s"
+	@echo "... simulator.o"
+	@echo "... simulator.i"
+	@echo "... simulator.s"
 	@echo "... user.o"
 	@echo "... user.i"
 	@echo "... user.s"

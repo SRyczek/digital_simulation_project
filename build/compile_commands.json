@@ -1,13 +1,23 @@
 [
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
-  "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/include.dir/user.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp",
+  "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o CMakeFiles/include.dir/user.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/user.cpp",
   "file": "/home/seb/Desktop/projects/digital_simulation_project/src/user.cpp"
 },
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
-  "command": "/usr/bin/g++  -I/.. -g -o CMakeFiles/include.dir/base.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/base.cpp",
+  "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o CMakeFiles/include.dir/base.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/base.cpp",
   "file": "/home/seb/Desktop/projects/digital_simulation_project/src/base.cpp"
+},
+{
+  "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
+  "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o CMakeFiles/include.dir/simulator.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/simulator.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/simulator.cpp"
+},
+{
+  "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",
+  "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o CMakeFiles/include.dir/network.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/network.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/network.cpp"
 },
 {
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build/src",

@@ -1,2 +1,1 @@
-/usr/bin/ar qc libinclude.a CMakeFiles/include.dir/user.cpp.o CMakeFiles/include.dir/base.cpp.o
-/usr/bin/ranlib libinclude.a
+/usr/bin/g++ -fPIC -g -shared -Wl,-soname,libinclude.so -o libinclude.so CMakeFiles/include.dir/user.cpp.o CMakeFiles/include.dir/base.cpp.o CMakeFiles/include.dir/simulator.cpp.o CMakeFiles/include.dir/network.cpp.o 

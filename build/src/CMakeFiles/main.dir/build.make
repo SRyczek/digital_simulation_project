@@ -92,7 +92,7 @@ main_EXTERNAL_OBJECTS =
 
 src/main: src/CMakeFiles/main.dir/main.cpp.o
 src/main: src/CMakeFiles/main.dir/build.make
-src/main: src/libinclude.a
+src/main: src/libinclude.so
 src/main: src/CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"
 	cd /home/seb/Desktop/projects/digital_simulation_project/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

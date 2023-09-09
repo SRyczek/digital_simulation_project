@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/main.dir/main.cpp.o -o main  libinclude.a 
+/usr/bin/g++ -g CMakeFiles/main.dir/main.cpp.o -o main  -Wl,-rpath,/home/seb/Desktop/projects/digital_simulation_project/build/src libinclude.so 

@@ -24,6 +24,12 @@ public:
     connection_t getConnection(void);
     double calculatePower(double t_basePosition);
     void changeStation(double t_baseFisrtPosition, double t_baseSecondPosition, double t_time);
+
+    bool operator == (const User& s) const { return m_position == s.m_position &&
+                                                    m_speed == s.m_speed &&
+                                                    m_timeToTrigger == s.m_timeToTrigger ;}
+    bool operator != (const User& s) const { return !operator == (s); }
+ 
 private:
     double m_position;
     double m_speed;

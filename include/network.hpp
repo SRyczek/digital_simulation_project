@@ -3,18 +3,22 @@
 
 #include <list>
 #include <queue>
-#include "../include/user.hpp"
+#include "user.hpp"
 
 class Network {
 public:
-    Network();
-    ~Network();
-    void addUserToSystem(const User &t_user);
-    void addUserToQueue(const User &t_user);
 
-private:
     std::list<User> m_activeUserListInSystem;
     std::queue<User> m_userQueue;
+
+    Network();
+    ~Network();
+    void addUserToSystem(User &t_user);
+    void removeUserFromSytem(User &t_user);
+    void addUserToQueue(User &t_user);
+
+private:
+
 };
 
 #endif
