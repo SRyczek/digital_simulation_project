@@ -1,0 +1,7 @@
+
+
+1. User destructor calls twice times
+    The user's destructor is called twice because when adding an element to the list, 
+    the compiler uses a temporary object for copying, which 
+    leads to the temporary object being removed via its destructor after copying.
+    https://stackoverflow.com/questions/2627540/why-is-the-destructor-of-the-class-called-twice

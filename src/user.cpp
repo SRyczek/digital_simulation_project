@@ -18,8 +18,8 @@ User::~User() {
 
 double User::calculateSpeed(void) {
     int range = 50 - 5 + 1;
-    int num = rand() % range + 5;
-    return num * 0.02;
+    int num = rand() % range + 5;   /* random variable from the range of 5 - 50 */
+    return num * 0.02;              /* update location once to 20 ms */
 }
 
 void User::updatePosition(void) {
@@ -52,6 +52,7 @@ void User::changeStation(double t_baseFisrtPosition, double t_baseSecondPosition
                 m_connection.firstBase = false;
                 m_connection.secondBase = true;
                 m_timeToTrigger = 0;
+                cout << "Change station to second" << endl;
             }
         } else {
             m_timeToTrigger = 0;
@@ -66,6 +67,7 @@ void User::changeStation(double t_baseFisrtPosition, double t_baseSecondPosition
                 m_connection.firstBase = true;
                 m_connection.secondBase = false;
                 m_timeToTrigger = 0;
+                cout << "Change station to first" << endl;
             }
         } else {
             m_timeToTrigger = 0;

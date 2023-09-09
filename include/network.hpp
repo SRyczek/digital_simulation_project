@@ -5,6 +5,8 @@
 #include <queue>
 #include "user.hpp"
 
+#define X_VALUE 2000
+
 class Network {
 public:
 
@@ -16,7 +18,8 @@ public:
     void addUserToSystem(User &t_user);
     void removeUserFromSytem(User &t_user);
     void addUserToQueue(User &t_user);
-
+    void radioLinkBreakup(double t_baseFirstPos, double t_baseSecondPos, User &t_user);
+    void userDistanceLimit(double t_baseSecondPos, User &t_user);
 private:
 
 };

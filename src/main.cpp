@@ -10,18 +10,37 @@ using namespace std;
 
 int main() {
 
+    /* variables declaration */
     double baseFirstPosition = 0;
     double baseSecondPosition = 5000;
+    double userGeneratorTime;
+
+
     Base baseFirst(baseFirstPosition);
     Base baseSecond(baseSecondPosition);
-
-    Simulator simulator1;
-
+    Simulator simulator;
     Network network;
-    User testUser;
-    network.addUserToSystem(testUser);
-    //network.removeUserFromSytem(testUser);
-    //cout << "Test: " << simulator.generateUserAppearanceTime(0.5) << endl;
+    User* testUser = new User;
+
+    network.addUserToSystem(*testUser);
+
+    //cout << "Test: " << simulator.generateUserAppearanceTime(LAMBDA) << endl;
+
+
+    while(simulator.simulatorTime < 1000) {
+        cout << "test" << endl;
+        /* czy system jest peny i czy kolejka jest pusta itd */
+
+        testUser->updatePosition();
+        testUser->changeStation(baseFirst.getPosition(),
+                                baseSecond.getPosition(),
+                                simulator.simulatorTime);
+        network.radioLinkBreakup(baseFirst.getPosition(), baseSecond.getPosition(), *testUser);
+        network.userDistanceLimit(baseSecond.getPosition(), *testUser);
+                            
+        simulator.simulatorTime += 0.02;
+    }
+
 
     // User testUser;
     // while (testUser.getPosition() < 5000) {
