@@ -29,12 +29,13 @@ public:
                                                     m_speed == s.m_speed &&
                                                     m_timeToTrigger == s.m_timeToTrigger ;}
     bool operator != (const User& s) const { return !operator == (s); }
+    
  
 private:
-    double m_position;
+    
     double m_speed;
     double m_timeToTrigger;
-
+    double m_position;
     connection_t m_connection;    
 
     double calculateSpeed(void);

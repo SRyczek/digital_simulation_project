@@ -11,6 +11,7 @@ Simulator();
 ~Simulator();
 double generateUserAppearanceTime(double t_lambda);
 double simulatorTime;
+bool event;
 private:
 
 };

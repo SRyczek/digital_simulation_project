@@ -5,3 +5,61 @@
     the compiler uses a temporary object for copying, which 
     leads to the temporary object being removed via its destructor after copying.
     https://stackoverflow.com/questions/2627540/why-is-the-destructor-of-the-class-called-twice
+
+
+
+Nie laczymy zdarzen warunkowych z czasowymi, poniewaz wyjdzie cos w stylu if cos tam to if cos innego itd.
+Chodzi to zeby ify rosly nam w sposob pionowy nie poziomy.
+
+Zdarzenia czasowe (Hoffman powiedzia, ze tylko dwa czasowe sa)
+    1) Generowanie uzytkownikow.
+    2) Raport uzytkonika.
+Zdarzenia warunkowe:
+    1) Czy lista jest pusta
+    2) Czy lista ma miejsce na nowego uzytkonika
+    ..
+
+
+Jak rozumiem powinna byc jakas lista zegarow i przechodzimy tam, gdzie najszybciej ma byc wykonane.
+
+
+Wazne:
+Do kazdego uzytkownika w peltli trzeba sprawdzac czy jest w systemie.
+
+
+while(1)
+{
+    uzytkownik = wybierzUzytkownikaZNajmniejszymCzasem();
+    uzytkownik.aktualizujPozycje()
+        while(event == false)
+        {
+            event = true;
+
+            if(czas systemowy jest ustawiony na wygenerowanie uzytkownika)
+            {
+                wygeneruj uzytkownika;
+                dodaj go do kolejki;;
+            }
+            if(system nie jest pelny && kolejka nie jest pusta)
+            {
+                dodaj uzytkownika do systemu;
+                event = false;
+            }
+            if(moc drugiej stacji byla wiekza od pierwszej o alpha przez ttt && uzytkownik nie jest NULL) 
+            {
+                zmien stacje;
+                event = false;
+            }
+            if(jesli przekroczyl 3000 m && uzytkownik nie jest NULL) 
+            {
+                usun z systemu;
+                event = false;
+            }
+            if(moc odbierana od drugiej stacji jest wieksza o delta od pierwszej stacji && uzytownik nie jest NULL)
+            {
+                usun z systemu;
+                event = false;
+            }
+
+        }
+}

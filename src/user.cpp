@@ -24,6 +24,7 @@ double User::calculateSpeed(void) {
 
 void User::updatePosition(void) {
     m_position += m_speed;
+    cout << "Actual position: " << m_position << endl;
 }
 
 double User::calculatePower(double t_basePosition) {
