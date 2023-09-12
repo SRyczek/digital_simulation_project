@@ -4,7 +4,8 @@
 using namespace std;
 
 Simulator::Simulator() {
-    simulatorTime = 0;
+    m_simulatorTime = 0;
+    m_userGeneratorTime = generateUserAppearanceTime(LAMBDA);
 }
 
 Simulator::~Simulator() {
@@ -17,4 +18,9 @@ double Simulator::generateUserAppearanceTime(double t_lambda) {
     std::exponential_distribution<double> dist(t_lambda);
     return dist(gen);
     
+}
+
+
+void Simulator::updateSimulatorTime(double t_updateTime) {
+    m_simulatorTime += t_updateTime;
 }

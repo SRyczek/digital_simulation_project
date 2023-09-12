@@ -232,6 +232,7 @@ src/CMakeFiles/main.dir/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
   ../include/simulator.hpp \
+  ../include/parameters.hpp \
   ../include/network.hpp \
   /usr/include/c++/11/list \
   /usr/include/c++/11/bits/stl_list.h \
@@ -387,6 +388,8 @@ src/CMakeFiles/main.dir/main.cpp.o: ../src/main.cpp \
 /usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
+
+../include/parameters.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

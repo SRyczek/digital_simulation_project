@@ -29,37 +29,59 @@ Do kazdego uzytkownika w peltli trzeba sprawdzac czy jest w systemie.
 
 while(1)
 {
-    uzytkownik = wybierzUzytkownikaZNajmniejszymCzasem();
-    uzytkownik.aktualizujPozycje()
-        while(event == false)
+    if(system nie jest pusty)
+    {
+        uzytkownik = wybierzUzytkownikaZNajmniejszymCzasemDoRaportu();
+    }
+    else 
+    {
+        uzytkownik = NULL;
+    }
+
+    while(event == false)
+    {
+        wybierzNajmniejszyCzas();
+
+        event = true;
+
+        if(najmniejszym czasem jest czas generowania uzytkownika)
         {
-            event = true;
-
-            if(czas systemowy jest ustawiony na wygenerowanie uzytkownika)
-            {
-                wygeneruj uzytkownika;
-                dodaj go do kolejki;;
-            }
-            if(system nie jest pelny && kolejka nie jest pusta)
-            {
-                dodaj uzytkownika do systemu;
-                event = false;
-            }
-            if(moc drugiej stacji byla wiekza od pierwszej o alpha przez ttt && uzytkownik nie jest NULL) 
-            {
-                zmien stacje;
-                event = false;
-            }
-            if(jesli przekroczyl 3000 m && uzytkownik nie jest NULL) 
-            {
-                usun z systemu;
-                event = false;
-            }
-            if(moc odbierana od drugiej stacji jest wieksza o delta od pierwszej stacji && uzytownik nie jest NULL)
-            {
-                usun z systemu;
-                event = false;
-            }
-
+            wygeneruj uzytkownika;
+            dodaj go do kolejki;
+            event = false;
         }
+        if(system nie jest pelny && kolejka nie jest pusta)
+        {
+            dodaj uzytkownika do systemu;
+            event = false;
+        }
+        if(moc drugiej stacji byla wiekza od pierwszej o alpha przez ttt && uzytkownik nie jest NULL) 
+        {
+            zmien stacje;
+            event = false;
+        }
+        if(jesli przekroczyl 3000 m && uzytkownik nie jest NULL) 
+        {
+            usun z systemu;
+            uzytkownik = NULL;
+            event = false;
+        }
+        if(moc odbierana od drugiej stacji jest wieksza o delta od pierwszej stacji && uzytownik nie jest NULL)
+        {
+            usun z systemu;
+            uzytkownik = NULL;
+            event = false;
+        }
+
+    }
+    Aktualizuj czas systemowy o czas ktory byl do najbliszego uzytkownika lub o czas do wygenerowania uzytkownika;
+    Aktualizuj pozycje wszystkich uzytkownikow o zmiane czasu systemowego;
+
 }
+
+
+User zostaje stworzony;
+raportTime = czasSystemowy + 20ms;
+
+Sprawdzanie czasow uzytkownikow:
+ ktory uzytkownik ma najmniejszy (czasSystemowy - raportTime)

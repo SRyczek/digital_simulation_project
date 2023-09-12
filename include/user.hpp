@@ -29,10 +29,11 @@ public:
                                                     m_speed == s.m_speed &&
                                                     m_timeToTrigger == s.m_timeToTrigger ;}
     bool operator != (const User& s) const { return !operator == (s); }
-    
- 
+    void updateRaportTime(double t_simulatorTime);
+    double m_raportTime;
+
 private:
-    
+
     double m_speed;
     double m_timeToTrigger;
     double m_position;

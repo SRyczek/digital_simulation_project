@@ -27,6 +27,10 @@ void User::updatePosition(void) {
     cout << "Actual position: " << m_position << endl;
 }
 
+void User::updateRaportTime(double t_simulatorTime) {
+    m_raportTime = t_simulatorTime + 0.02;
+}
+
 double User::calculatePower(double t_basePosition) {
     double distanceToBase = abs(m_position - t_basePosition);
     std::mt19937 gen(123);

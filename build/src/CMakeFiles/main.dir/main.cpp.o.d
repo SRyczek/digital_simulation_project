@@ -190,6 +190,7 @@ src/CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/seb/Desktop/projects/digital_simulation_project/src/../include/simulator.hpp \
+ /home/seb/Desktop/projects/digital_simulation_project/src/../include/parameters.hpp \
  /home/seb/Desktop/projects/digital_simulation_project/src/../include/network.hpp \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \

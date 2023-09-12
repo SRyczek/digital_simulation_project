@@ -609,7 +609,8 @@ src/CMakeFiles/include.dir/simulator.cpp.o: ../src/simulator.cpp \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/bit \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h
+  /usr/include/c++/11/pstl/execution_defs.h \
+  ../include/parameters.hpp
 
 src/CMakeFiles/include.dir/user.cpp.o: ../src/user.cpp \
   /usr/include/stdc-predef.h \
@@ -969,6 +970,8 @@ src/CMakeFiles/include.dir/user.cpp.o: ../src/user.cpp \
 /usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
+
+../include/parameters.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

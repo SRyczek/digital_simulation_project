@@ -15,55 +15,64 @@ int main() {
     double baseSecondPosition = 5000;
     double userGeneratorTime;
 
-
     Base baseFirst(baseFirstPosition);
     Base baseSecond(baseSecondPosition);
     Simulator simulator;
     Network network;
-    User* testUser = new User;
 
-    network.addUserToSystem(*testUser);
+    simulator.event = false;
 
-    //cout << "Test: " << simulator.generateUserAppearanceTime(LAMBDA) << endl;
 
     while(1) {
 
-        /* wybierz uzytkownika z najmniejszym czasem */
-        testUser->updatePosition();
+        if(size(network.m_activeUserListInSystem) > 0) {
+            /* choose user with the smallest time */
+            User actualUser;
+            for(const User& user : network.m_activeUserListInSystem) {
+                if (user.m_raportTime < actualUser.m_raportTime) {
+                    actualUser.m_raportTime = user.m_raportTime;
+                }
+            }
+            if (actualUser.m_raportTime > simulator.m_userGeneratorTime) {
+                simulator.m_leastTime = simulator.m_userGeneratorTime;
+
+            } else if (actualUser.m_raportTime < simulator.m_userGeneratorTime){
+                simulator.m_leastTime = actualUser.m_raportTime;
+            }
+            else if (actualUser.m_raportTime == simulator.m_userGeneratorTime) {
+                simulator.m_leastTime = simulator.m_userGeneratorTime;
+                /* tutaj moliwe ze trzeba na to spojrzec */
+            }
+        }
+
         simulator.event = false;
         while(simulator.event == false) {
             simulator.event = true;
 
-            if()
+            if(simulator.m_userGeneratorTime == simulator.m_leastTime) {
+               User* user = new User; 
+               user->updateRaportTime(simulator.m_simulatorTime);
+               network.addUserToQueue(*user);
+               simulator.m_userGeneratorTime = simulator.generateUserAppearanceTime(LAMBDA);
+               simulator.updateSimulatorTime(simulator.m_leastTime);
+               simulator.event = false;
+               
+            }
 
-            if(testUser->getPosition() > 3000) {
-                /* tutaj ogolnie proble, ze jak usune z systemu to dalej na nim sie wywoluje bo jest zwalnianie pamieci */
-                network.removeUserFromSytem(*testUser);
+            if(size(network.m_activeUserListInSystem) < 80 && size(network.m_userQueue) > 0) {
+                network.addUserToSystem();
                 simulator.event = false;
             }
+        
 
         }
 
-
-        cout << endl;
-        usleep(50000);
+        cout << "Kolejka: " << size(network.m_userQueue) << endl;
+        cout << "System: "<< size(network.m_activeUserListInSystem) << endl << endl;
+        usleep(500000);
     }
 
 
-
-    // while(simulator.simulatorTime < 1000) {
-    //     cout << "test" << endl;
-    //     /* czy system jest peny i czy k olejka jest pusta itd */
-
-    //     testUser->updatePosition();
-    //     testUser->changeStation(baseFirst.getPosition(),
-    //                             baseSecond.getPosition(),
-    //                             simulator.simulatorTime);
-    //     network.radioLinkBreakup(baseFirst.getPosition(), baseSecond.getPosition(), *testUser);
-    //     network.userDistanceLimit(baseSecond.getPosition(), *testUser);
-                            
-    //     simulator.simulatorTime += 0.02;
-    // }
 
     cout << "Before return" << endl;
     return 0;
