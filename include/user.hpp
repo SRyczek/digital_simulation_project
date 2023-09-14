@@ -17,7 +17,7 @@ typedef struct connection {
 
 class User {
 public:
-    User();
+    User(double t_simulatorTime);
     ~User();
     void updatePosition(void);
     double getPosition(void);

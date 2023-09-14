@@ -8,73 +8,84 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
 
     /* variables declaration */
     double baseFirstPosition = 0;
     double baseSecondPosition = 5000;
-    double userGeneratorTime;
 
     Base baseFirst(baseFirstPosition);
     Base baseSecond(baseSecondPosition);
     Simulator simulator;
     Network network;
-
+    User *actualUser = nullptr;
     simulator.event = false;
 
+    while (1)
+    {
 
-    while(1) {
-
-        if(size(network.m_activeUserListInSystem) > 0) {
-            /* choose user with the smallest time */
-            User actualUser;
-            for(const User& user : network.m_activeUserListInSystem) {
-                if (user.m_raportTime < actualUser.m_raportTime) {
-                    actualUser.m_raportTime = user.m_raportTime;
+        if (actualUser == nullptr)
+        {
+            User *user = new User(simulator.m_simulatorTime);
+            simulator.m_simulatorTime = simulator.m_userGeneratorTime;
+            network.addUserToQueue(*user);
+            simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+            actualUser = user;
+            cout << "test" << endl;
+        }
+        else
+        {
+            //actualUser = &network.m_activeUserListInSystem.front();
+            for (User &user : network.m_activeUserListInSystem)
+            {
+                if (user.m_raportTime < actualUser->m_raportTime)
+                {
+                    actualUser = &user;
                 }
             }
-            if (actualUser.m_raportTime > simulator.m_userGeneratorTime) {
-                simulator.m_leastTime = simulator.m_userGeneratorTime;
-
-            } else if (actualUser.m_raportTime < simulator.m_userGeneratorTime){
-                simulator.m_leastTime = actualUser.m_raportTime;
+            if (actualUser->m_raportTime > simulator.m_userGeneratorTime)
+            {
+                User *user = new User(simulator.m_simulatorTime);
+                simulator.m_simulatorTime = simulator.m_userGeneratorTime;
+                network.addUserToQueue(*user);
+                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+                simulator.userRaportFlag = false;
             }
-            else if (actualUser.m_raportTime == simulator.m_userGeneratorTime) {
-                simulator.m_leastTime = simulator.m_userGeneratorTime;
-                /* tutaj moliwe ze trzeba na to spojrzec */
+            else if (actualUser->m_raportTime < simulator.m_userGeneratorTime)
+            {
+                simulator.userRaportFlag = true;
+                simulator.m_simulatorTime += 0.2;
             }
+            else if (actualUser->m_raportTime == simulator.m_userGeneratorTime)
+            {
+                User *user = new User(simulator.m_simulatorTime);
+                simulator.m_simulatorTime = simulator.m_userGeneratorTime;
+                network.addUserToQueue(*user);
+                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+                simulator.userRaportFlag = true;
+            }
+                cout << "GT: " << simulator.m_userGeneratorTime << endl;
+                cout << "RT: " << actualUser->m_raportTime << endl;
         }
-
-        simulator.event = false;
-        while(simulator.event == false) {
-            simulator.event = true;
-
-            if(simulator.m_userGeneratorTime == simulator.m_leastTime) {
-               User* user = new User; 
-               user->updateRaportTime(simulator.m_simulatorTime);
-               network.addUserToQueue(*user);
-               simulator.m_userGeneratorTime = simulator.generateUserAppearanceTime(LAMBDA);
-               simulator.updateSimulatorTime(simulator.m_leastTime);
-               simulator.event = false;
-               
-            }
-
-            if(size(network.m_activeUserListInSystem) < 80 && size(network.m_userQueue) > 0) {
+        simulator.event = true;
+        while (simulator.event == true)
+        {
+            simulator.event = false;
+            if (size(network.m_activeUserListInSystem) < 80 && size(network.m_userQueue) > 0)
+            {
                 network.addUserToSystem();
-                simulator.event = false;
+                simulator.event = true;
             }
-        
-
         }
-
+        actualUser->updateRaportTime(simulator.m_simulatorTime);
+        
+        cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
-        cout << "System: "<< size(network.m_activeUserListInSystem) << endl << endl;
-        usleep(500000);
+        cout << "System: " << size(network.m_activeUserListInSystem) << endl;
+
+        usleep(50000);
     }
 
-
-
-    cout << "Before return" << endl;
     return 0;
-
 }

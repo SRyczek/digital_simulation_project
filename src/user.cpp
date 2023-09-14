@@ -3,11 +3,13 @@
 
 using namespace std;
 
-User::User() {
+User::User(double t_simulatorTime)
+{
     cout << "Create User" << endl;
     m_speed = calculateSpeed();
     m_position = 2000;
     m_timeToTrigger = 0;
+    m_raportTime = t_simulatorTime + 0.02;
     m_connection.firstBase = true;
     m_connection.secondBase = false;
 }

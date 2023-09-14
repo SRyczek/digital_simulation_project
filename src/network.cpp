@@ -24,8 +24,11 @@ void Network::removeUserFromSytem(User &t_user) {
 }
 
 void Network::addUserToQueue(User &t_user) {
-    m_userQueue.push(t_user);
-    cout << "Correctly add user to queue " << endl;
+    if (&t_user != nullptr) {
+        m_userQueue.push(t_user);
+        cout << "Correctly add user to queue " << endl;
+    }
+
 }
 
 void Network::radioLinkBreakup(double t_baseFirstPos,

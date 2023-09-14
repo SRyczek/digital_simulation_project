@@ -2,7 +2,9 @@
 #define SIMULATOR_HPP
 
 #include <random>
+#include <iostream>
 #include "parameters.hpp"
+#include <cmath>
 
 class Simulator {
 public:
@@ -12,8 +14,10 @@ public:
     void updateSimulatorTime(double t_updateTime);
     double m_simulatorTime;
     bool event;
+    bool userRaportFlag;
     double m_userGeneratorTime;
     double m_leastTime;
+
 
 private:
 };

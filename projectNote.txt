@@ -38,9 +38,10 @@ while(1)
         uzytkownik = NULL;
     }
 
+    wybierzNajmniejszyCzas();
+
     while(event == false)
     {
-        wybierzNajmniejszyCzas();
 
         event = true;
 
