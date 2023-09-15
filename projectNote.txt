@@ -86,3 +86,17 @@ raportTime = czasSystemowy + 20ms;
 
 Sprawdzanie czasow uzytkownikow:
  ktory uzytkownik ma najmniejszy (czasSystemowy - raportTime)
+
+
+
+
+
+
+
+
+Jak rozwiazac moj problem:
+
+Mam pewien pomysl, w ktorym chodzi o to, aby usunac koncept actualUser i uzywania wskaznika, a uzyc po prostu
+zdejmowania z listy aktualnego user. Czyli np znalazlem juz usera z najmniejszym czasem, zdejmuje go z listy i przypisuje do np
+pomocniczego obiektu user i robie na nim operacje. Jesli operacje nie usuwaja go, odkadam go na liste i tyle. Jesli operacja ma go usunac
+to po prostu go usuwam i nie wrzucam do systemu.

@@ -2,6 +2,6 @@
 #ifndef PARAMETERS_HPP
 #define PARAMETER_HPP
 
-#define LAMBDA 1
+#define LAMBDA 0.005
 
 #endif

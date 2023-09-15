@@ -22,6 +22,14 @@ int main()
     User *actualUser = nullptr;
     simulator.event = false;
 
+    // for(int i = 0; i < 1000; i++)
+    // {
+    //     simulator.generateUserAppearanceTime(LAMBDA);
+    //     usleep(500000);
+    // }
+
+
+
     while (1)
     {
 
@@ -32,7 +40,8 @@ int main()
             network.addUserToQueue(*user);
             simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
             actualUser = user;
-            cout << "test" << endl;
+            cout << "actualUser address: " << actualUser << endl;
+            cout << "user address: " << &user << endl;
         }
         else
         {
@@ -55,6 +64,7 @@ int main()
             else if (actualUser->m_raportTime < simulator.m_userGeneratorTime)
             {
                 simulator.userRaportFlag = true;
+                actualUser->updatePosition();
                 simulator.m_simulatorTime += 0.2;
             }
             else if (actualUser->m_raportTime == simulator.m_userGeneratorTime)
@@ -77,14 +87,28 @@ int main()
                 network.addUserToSystem();
                 simulator.event = true;
             }
+            if (simulator.userRaportFlag == true && actualUser->getPosition() > 3000)
+            {
+                network.removeUserFromSytem(*actualUser);
+                delete actualUser;
+                actualUser = nullptr;
+                simulator.event = true;
+            }
+
         }
-        actualUser->updateRaportTime(simulator.m_simulatorTime);
-        
+
+        if (actualUser != nullptr)
+        {
+            actualUser->updateRaportTime(simulator.m_simulatorTime);
+            simulator.event = true;
+
+        }
+
         cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
 
-        usleep(50000);
+        usleep(50);
     }
 
     return 0;

@@ -3,15 +3,18 @@
 
 using namespace std;
 
-Base::Base(double t_position) {
+Base::Base(double t_position)
+{
     cout << "Create base " << endl;
     m_position = t_position;
 }
 
-Base::~Base() {
+Base::~Base()
+{
     cout << "Station deleted" << endl;
 }
 
-double Base::getPosition() {
+double Base::getPosition()
+{
     return m_position;
 }
