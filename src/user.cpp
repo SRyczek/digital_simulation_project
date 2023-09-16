@@ -8,7 +8,6 @@ User::User(double t_simulatorTime)
     cout << "Create User" << endl;
     m_speed = calculateSpeed();
     m_position = 2000;
-    m_timeToTrigger = 0;
     m_raportTime = t_simulatorTime + 0.02;
     m_connection.firstBase = true;
     m_connection.secondBase = false;
@@ -55,52 +54,18 @@ connection_t User::getConnection(void)
     return m_connection;
 }
 
-void User::changeStation(double t_baseFisrtPosition, double t_baseSecondPosition, double t_time)
+bool User::greaterThanAlpha(double t_basePositionX, double t_basePositionY)
 {
-    double powerFirst = calculatePower(t_baseFisrtPosition);
-    double powerSecond = calculatePower(t_baseSecondPosition);
-    if (m_connection.firstBase == true && m_connection.secondBase == false)
-    {
-        if (powerSecond > (powerFirst + ALPHA_PARAMETER))
-        {
+    double powerX = calculatePower(t_basePositionX);
+    double powerY = calculatePower(t_basePositionY);
 
-            m_timeToTrigger += t_time;
-            if (m_timeToTrigger > TIME_TO_TRIGGER_PARAMETER)
-            {
-                m_connection.firstBase = false;
-                m_connection.secondBase = true;
-                m_timeToTrigger = 0;
-                cout << "Change station to second" << endl;
-            }
-        }
-        else
-        {
-            m_timeToTrigger = 0;
-        }
-    }
-    else if (m_connection.firstBase == false && m_connection.secondBase == true)
+    if(powerX > powerY + ALPHA)
     {
-
-        if (powerFirst > (powerSecond + ALPHA_PARAMETER))
-        {
-
-            m_timeToTrigger += t_time;
-            if (m_timeToTrigger > TIME_TO_TRIGGER_PARAMETER)
-            {
-                m_connection.firstBase = true;
-                m_connection.secondBase = false;
-                m_timeToTrigger = 0;
-                cout << "Change station to first" << endl;
-            }
-        }
-        else
-        {
-            m_timeToTrigger = 0;
-        }
+        return true;
     }
-    else
+    else 
     {
-        cout << "changeStation ERROR" << endl;
-        exit(1);
+        return false;
     }
+
 }

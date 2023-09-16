@@ -17,6 +17,7 @@ public:
     bool userRaportFlag;
     double m_userGeneratorTime;
     double m_leastTime;
+    int eventLoopIterator;
 
 
 private:

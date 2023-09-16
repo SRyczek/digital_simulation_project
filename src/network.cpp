@@ -48,12 +48,3 @@ void Network::radioLinkBreakup(double t_baseFirstPos,
         removeUserFromSytem(t_user);
     }
 }
-
-void Network::userDistanceLimit(double t_baseSecondPos, User &t_user)
-{
-    if (t_user.getPosition() < t_baseSecondPos - X_VALUE)
-    {
-        cout << "User exceeded the distance limit" << endl;
-        removeUserFromSytem(t_user);
-    }
-}

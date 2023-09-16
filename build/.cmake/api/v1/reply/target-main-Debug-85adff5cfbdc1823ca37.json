@@ -85,7 +85,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "libinclude.so",
+				"fragment" : "src/libinclude.so",
 				"role" : "libraries"
 			}
 		],

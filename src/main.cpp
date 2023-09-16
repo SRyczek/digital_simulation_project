@@ -28,11 +28,9 @@ int main()
     //     usleep(500000);
     // }
 
-
-
     while (1)
     {
-
+        simulator.userRaportFlag = false;
         if (actualUser == nullptr)
         {
             User *user = new User(simulator.m_simulatorTime);
@@ -40,12 +38,9 @@ int main()
             network.addUserToQueue(*user);
             simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
             actualUser = user;
-            cout << "actualUser address: " << actualUser << endl;
-            cout << "user address: " << &user << endl;
         }
         else
         {
-            //actualUser = &network.m_activeUserListInSystem.front();
             for (User &user : network.m_activeUserListInSystem)
             {
                 if (user.m_raportTime < actualUser->m_raportTime)
@@ -75,12 +70,14 @@ int main()
                 simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
                 simulator.userRaportFlag = true;
             }
-                cout << "GT: " << simulator.m_userGeneratorTime << endl;
-                cout << "RT: " << actualUser->m_raportTime << endl;
+            cout << "GT: " << simulator.m_userGeneratorTime << endl;
+            cout << "RT: " << actualUser->m_raportTime << endl;
         }
+        simulator.eventLoopIterator = 0;
         simulator.event = true;
         while (simulator.event == true)
         {
+
             simulator.event = false;
             if (size(network.m_activeUserListInSystem) < 80 && size(network.m_userQueue) > 0)
             {
@@ -90,25 +87,59 @@ int main()
             if (simulator.userRaportFlag == true && actualUser->getPosition() > 3000)
             {
                 network.removeUserFromSytem(*actualUser);
-                delete actualUser;
-                actualUser = nullptr;
+                actualUser = &network.m_activeUserListInSystem.front();
+                simulator.userRaportFlag = false;
+                simulator.event = true;
+            }
+            if (simulator.userRaportFlag == true &&
+                actualUser->greaterThanAlpha(baseFirst.getPosition(), baseSecond.getPosition()) &&
+                simulator.eventLoopIterator == 0)
+            {
+                actualUser->m_TTTfirstToSecond++;
+                actualUser->m_TTTSecondToFirst = 0;
+                simulator.event = true;
+            }
+            else if (simulator.userRaportFlag == true &&
+                     actualUser->greaterThanAlpha(baseSecond.getPosition(), baseFirst.getPosition()) &&
+                     simulator.eventLoopIterator == 0)
+            {
+                actualUser->m_TTTSecondToFirst++;
+                actualUser->m_TTTfirstToSecond = 0;
+                simulator.event = true;
+            }
+            else if (simulator.userRaportFlag == true &&
+                     simulator.eventLoopIterator == 0)
+            {
+                actualUser->m_TTTSecondToFirst = 0;
+                actualUser->m_TTTfirstToSecond = 0;
+            }
+            if (simulator.userRaportFlag == true && actualUser->m_TTTfirstToSecond >= 5)
+            {
+                cout << "Change station" << endl;
+                /* code to change station */
+                simulator.event = true;
+            }
+            if (simulator.userRaportFlag == true && actualUser->m_TTTSecondToFirst >= 5)
+            {
+                cout << "Change station" << endl;
+                /* code to change station */
                 simulator.event = true;
             }
 
+
+            simulator.eventLoopIterator++;
         }
 
-        if (actualUser != nullptr)
+        if (simulator.userRaportFlag == true)
         {
             actualUser->updateRaportTime(simulator.m_simulatorTime);
-            simulator.event = true;
-
         }
 
         cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
 
-        usleep(50);
+        usleep(500000);
     }
 
     return 0;
