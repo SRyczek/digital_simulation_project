@@ -9,8 +9,7 @@ User::User(double t_simulatorTime)
     m_speed = calculateSpeed();
     m_position = 2000;
     m_raportTime = t_simulatorTime + 0.02;
-    m_connection.firstBase = true;
-    m_connection.secondBase = false;
+    m_connection = BASE_FIRST_ENUM;
 }
 
 User::~User()
@@ -52,6 +51,11 @@ double User::getPosition(void)
 connection_t User::getConnection(void)
 {
     return m_connection;
+}
+
+void User::updateConnection(connection_t t_connection)
+{
+    m_connection = t_connection;
 }
 
 bool User::greaterThanAlpha(double t_basePositionX, double t_basePositionY)

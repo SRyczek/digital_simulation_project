@@ -21,6 +21,7 @@ int main()
     Network network;
     User *actualUser = nullptr;
     simulator.event = false;
+    int counter = 0;
 
     // for(int i = 0; i < 1000; i++)
     // {
@@ -77,7 +78,6 @@ int main()
         simulator.event = true;
         while (simulator.event == true)
         {
-
             simulator.event = false;
             if (size(network.m_activeUserListInSystem) < 80 && size(network.m_userQueue) > 0)
             {
@@ -91,7 +91,8 @@ int main()
                 simulator.userRaportFlag = false;
                 simulator.event = true;
             }
-            if (simulator.userRaportFlag == true &&
+            if (actualUser->getConnection() == BASE_FIRST_ENUM &&
+                simulator.userRaportFlag == true &&
                 actualUser->greaterThanAlpha(baseFirst.getPosition(), baseSecond.getPosition()) &&
                 simulator.eventLoopIterator == 0)
             {
@@ -99,7 +100,8 @@ int main()
                 actualUser->m_TTTSecondToFirst = 0;
                 simulator.event = true;
             }
-            else if (simulator.userRaportFlag == true &&
+            else if (actualUser->getConnection() == BASE_SECOND_ENUM &&
+                     simulator.userRaportFlag == true &&
                      actualUser->greaterThanAlpha(baseSecond.getPosition(), baseFirst.getPosition()) &&
                      simulator.eventLoopIterator == 0)
             {
@@ -107,25 +109,42 @@ int main()
                 actualUser->m_TTTfirstToSecond = 0;
                 simulator.event = true;
             }
-            else if (simulator.userRaportFlag == true &&
+            else if (actualUser->getConnection() == NO_BASE_STATION_CONNECTED &&
+                     simulator.userRaportFlag == true &&
                      simulator.eventLoopIterator == 0)
             {
                 actualUser->m_TTTSecondToFirst = 0;
                 actualUser->m_TTTfirstToSecond = 0;
             }
-            if (simulator.userRaportFlag == true && actualUser->m_TTTfirstToSecond >= 5)
+            else 
+            {
+                cout << "Change connection error" << endl;
+            }
+            if (simulator.userRaportFlag == true &&
+                actualUser->m_TTTfirstToSecond >= 5 &&
+                actualUser->getConnection() == BASE_FIRST_ENUM)
             {
                 cout << "Change station" << endl;
                 /* code to change station */
                 simulator.event = true;
+                actualUser->updateConnection(BASE_SECOND_ENUM);
+                counter++;
             }
-            if (simulator.userRaportFlag == true && actualUser->m_TTTSecondToFirst >= 5)
+            if (simulator.userRaportFlag == true &&
+                actualUser->m_TTTSecondToFirst >= 5 &&
+                actualUser->getConnection() == BASE_SECOND_ENUM)
             {
                 cout << "Change station" << endl;
                 /* code to change station */
                 simulator.event = true;
+                actualUser->updateConnection(BASE_FIRST_ENUM);
+                counter++;
             }
-
+            if(simulator.userRaportFlag == true &&
+              actualUser->)
+            {
+                
+            }
 
             simulator.eventLoopIterator++;
         }
@@ -138,8 +157,9 @@ int main()
         cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
+        cout << "Change number: " << counter << endl;
 
-        usleep(500000);
+        usleep(500);
     }
 
     return 0;

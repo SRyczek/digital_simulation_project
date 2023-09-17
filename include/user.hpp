@@ -6,14 +6,12 @@
 #include <random>
 #include "parameters.hpp"
 
-#define TIME_TO_TRIGGER_PARAMETER 0.1
-
-
-typedef struct connection {
-    bool firstBase;
-    bool secondBase;
+typedef enum
+{
+    BASE_FIRST_ENUM,
+    BASE_SECOND_ENUM,
+    NO_BASE_STATION_CONNECTED
 } connection_t;
-
 
 class User {
 public:
@@ -22,6 +20,7 @@ public:
     void updatePosition(void);
     double getPosition(void);
     connection_t getConnection(void);
+    void updateConnection(connection_t t_connection);
     double calculatePower(double t_basePosition);
     bool greaterThanAlpha(double t_basePositionX, double t_basePositionY);
 
@@ -34,9 +33,8 @@ public:
     double m_speed;
     int m_TTTfirstToSecond;
     int m_TTTSecondToFirst;
-
+    connection_t m_connection;
     double m_position;
-    connection_t m_connection;    
 
     double calculateSpeed(void);
 };
