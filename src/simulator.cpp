@@ -11,6 +11,7 @@ Simulator::Simulator()
 
 Simulator::~Simulator()
 {
+    
 }
 
 double Simulator::generateUserAppearanceTime(double t_lambda)

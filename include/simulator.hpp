@@ -12,15 +12,16 @@ public:
     ~Simulator();
     double generateUserAppearanceTime(double t_lambda);
     void updateSimulatorTime(double t_updateTime);
-    double m_simulatorTime;
-    bool event;
-    bool userRaportFlag;
+
+    bool m_event;
+    bool m_userRaportFlag;
     double m_userGeneratorTime;
     double m_leastTime;
-    int eventLoopIterator;
-
+    int m_eventLoopIterator;
+    double m_simulatorTime;
 
 private:
+
 };
 
 #endif

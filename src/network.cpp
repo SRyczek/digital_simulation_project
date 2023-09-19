@@ -36,15 +36,3 @@ void Network::addUserToQueue(User &t_user)
     }
 }
 
-void Network::radioLinkBreakup(double t_baseFirstPos,
-                               double t_baseSecondPos,
-                               User &t_user)
-{
-
-    if (t_user.calculatePower(t_baseFirstPos) > (t_user.calculatePower(t_baseSecondPos) + 20) &&
-        t_user.calculatePower(t_baseSecondPos) > (t_user.calculatePower(t_baseFirstPos) + 20))
-    {
-        cout << "Radio link breakup" << endl;
-        removeUserFromSytem(t_user);
-    }
-}

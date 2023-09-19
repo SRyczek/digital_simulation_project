@@ -58,12 +58,12 @@ void User::updateConnection(connection_t t_connection)
     m_connection = t_connection;
 }
 
-bool User::greaterThanAlpha(double t_basePositionX, double t_basePositionY)
+bool User::greaterThanPowerPlus(double t_basePositionX, double t_basePositionY, double t_parameter)
 {
     double powerX = calculatePower(t_basePositionX);
     double powerY = calculatePower(t_basePositionY);
 
-    if(powerX > powerY + ALPHA)
+    if (powerX > powerY + t_parameter)
     {
         return true;
     }
