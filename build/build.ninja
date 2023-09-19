@@ -170,6 +170,14 @@ build src/CMakeFiles/include.dir/network.cpp.o: CXX_COMPILER__include_Debug /hom
   OBJECT_DIR = src/CMakeFiles/include.dir
   OBJECT_FILE_DIR = src/CMakeFiles/include.dir
 
+build src/CMakeFiles/include.dir/logger.cpp.o: CXX_COMPILER__include_Debug /home/seb/Desktop/projects/digital_simulation_project/src/logger.cpp || cmake_object_order_depends_target_include
+  DEFINES = -Dinclude_EXPORTS
+  DEP_FILE = src/CMakeFiles/include.dir/logger.cpp.o.d
+  FLAGS = -g -fPIC
+  INCLUDES = -I/..
+  OBJECT_DIR = src/CMakeFiles/include.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/include.dir
+
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target include
@@ -178,7 +186,7 @@ build src/CMakeFiles/include.dir/network.cpp.o: CXX_COMPILER__include_Debug /hom
 #############################################
 # Link the shared library src/libinclude.so
 
-build src/libinclude.so: CXX_SHARED_LIBRARY_LINKER__include_Debug src/CMakeFiles/include.dir/user.cpp.o src/CMakeFiles/include.dir/base.cpp.o src/CMakeFiles/include.dir/simulator.cpp.o src/CMakeFiles/include.dir/network.cpp.o
+build src/libinclude.so: CXX_SHARED_LIBRARY_LINKER__include_Debug src/CMakeFiles/include.dir/user.cpp.o src/CMakeFiles/include.dir/base.cpp.o src/CMakeFiles/include.dir/simulator.cpp.o src/CMakeFiles/include.dir/network.cpp.o src/CMakeFiles/include.dir/logger.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/CMakeFiles/include.dir
   POST_BUILD = :

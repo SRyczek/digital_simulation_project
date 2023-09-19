@@ -1,0 +1,54 @@
+6.83285: User in system: 1
+1000.07: User in system: 5
+2000: User in system: 8
+3000.02: User in system: 10
+4000.2: User in system: 11
+5000.15: User in system: 13
+6000.06: User in system: 15
+7000.13: User in system: 19
+8000.01: User in system: 21
+9000.04: User in system: 25
+10000.2: User in system: 27
+11000.1: User in system: 33
+12000.2: User in system: 34
+181.389: User in system: 1
+1000.1: User in system: 3
+2000.03: User in system: 6
+3000.11: User in system: 6
+4000.16: User in system: 8
+5000.02: User in system: 9
+6000.02: User in system: 12
+
+
+0: Simulator start 0
+0: User in system: 0
+62.7213: User in system: 1
+1000.12: User in system: 0
+2000.12: User in system: 0
+3000.12: User in system: 0
+4000.12: User in system: 0
+5000.12: User in system: 0
+6000.12: User in system: 0
+7000.12: User in system: 0
+8000.12: User in system: 0
+9000.12: User in system: 0
+10000.1: User in system: 0
+11000.1: User in system: 0
+12000.1: User in system: 0
+13000.1: User in system: 0
+14000.1: User in system: 0
+15000.1: User in system: 0
+16000.1: User in system: 0
+17000.1: User in system: 0
+
+
+0: Simulator start 0
+43.5523: User in system: 1
+1000.03: User in system: 10
+2000.05: User in system: 14
+3000.18: User in system: 20
+4000.07: User in system: 23
+5000.08: User in system: 25
+6000.03: User in system: 27
+7000.02: User in system: 31
+8000.02: User in system: 34

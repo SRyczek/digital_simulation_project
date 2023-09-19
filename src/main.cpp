@@ -5,6 +5,7 @@
 #include "../include/user.hpp"
 #include "../include/simulator.hpp"
 #include "../include/network.hpp"
+#include "../include/logger.hpp"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ int main()
     Simulator simulator;
     Network network;
     User *actualUser = nullptr;
+    Logger logger;
     simulator.m_event = false;
     int counter = 0;
 
@@ -160,6 +162,12 @@ int main()
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
         cout << "Change number: " << counter << endl;
+
+        if(simulator.m_simulatorTime > logger.m_loggerTimer)
+        {
+            logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
+            logger.m_loggerTimer += 1000;
+        }
 
         usleep(50);
     }

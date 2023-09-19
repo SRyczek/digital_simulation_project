@@ -23,5 +23,10 @@
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build",
   "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o src/CMakeFiles/include.dir/network.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/network.cpp",
   "file": "/home/seb/Desktop/projects/digital_simulation_project/src/network.cpp"
+},
+{
+  "directory": "/home/seb/Desktop/projects/digital_simulation_project/build",
+  "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o src/CMakeFiles/include.dir/logger.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/logger.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/src/logger.cpp"
 }
 ]
