@@ -7,6 +7,7 @@ Simulator::Simulator()
 {
     m_simulatorTime = 0;
     m_userGeneratorTime = generateUserAppearanceTime(LAMBDA);
+    memset(m_counter, 0, sizeof(m_counter));
 }
 
 Simulator::~Simulator()

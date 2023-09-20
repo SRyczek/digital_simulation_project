@@ -1,54 +1,915 @@
-6.83285: User in system: 1
-1000.07: User in system: 5
-2000: User in system: 8
-3000.02: User in system: 10
-4000.2: User in system: 11
-5000.15: User in system: 13
-6000.06: User in system: 15
-7000.13: User in system: 19
-8000.01: User in system: 21
-9000.04: User in system: 25
-10000.2: User in system: 27
-11000.1: User in system: 33
-12000.2: User in system: 34
-181.389: User in system: 1
-1000.1: User in system: 3
-2000.03: User in system: 6
-3000.11: User in system: 6
-4000.16: User in system: 8
-5000.02: User in system: 9
-6000.02: User in system: 12
 
 
 0: Simulator start 0
-0: User in system: 0
-62.7213: User in system: 1
-1000.12: User in system: 0
-2000.12: User in system: 0
-3000.12: User in system: 0
-4000.12: User in system: 0
-5000.12: User in system: 0
-6000.12: User in system: 0
-7000.12: User in system: 0
-8000.12: User in system: 0
-9000.12: User in system: 0
-10000.1: User in system: 0
-11000.1: User in system: 0
-12000.1: User in system: 0
-13000.1: User in system: 0
-14000.1: User in system: 0
-15000.1: User in system: 0
-16000.1: User in system: 0
-17000.1: User in system: 0
+43.7308: User in system: 1
+43.7308: User in queue: 0
+43.7308: Change station from first to second: 0
+43.7308: Change station from second to first: 0
+43.7308: Users exceeded distance: 0
+
+1000.09: User in system: 5
+1000.09: User in queue: 0
+1000.09: Change station from first to second: 3
+1000.09: Change station from second to first: 0
+1000.09: Users exceeded distance: 0
+
+2000.18: User in system: 9
+2000.18: User in queue: 0
+2000.18: Change station from first to second: 4
+2000.18: Change station from second to first: 0
+2000.18: Users exceeded distance: 0
+
+3000.13: User in system: 11
+3000.13: User in queue: 0
+3000.13: Change station from first to second: 5
+3000.13: Change station from second to first: 0
+3000.13: Users exceeded distance: 2
+
+4000.16: User in system: 15
+4000.16: User in queue: 0
+4000.16: Change station from first to second: 6
+4000.16: Change station from second to first: 0
+4000.16: Users exceeded distance: 4
+
+5000.11: User in system: 20
+5000.11: User in queue: 0
+5000.11: Change station from first to second: 7
+5000.11: Change station from second to first: 0
+5000.11: Users exceeded distance: 5
+
+6000.06: User in system: 29
+6000.06: User in queue: 0
+6000.06: Change station from first to second: 8
+6000.06: Change station from second to first: 0
+6000.06: Users exceeded distance: 5
+
+7000.01: User in system: 36
+7000.01: User in queue: 0
+7000.01: Change station from first to second: 9
+7000.01: Change station from second to first: 0
+7000.01: Users exceeded distance: 6
+
+8000.19: User in system: 37
+8000.19: User in queue: 0
+8000.19: Change station from first to second: 10
+8000.19: Change station from second to first: 0
+8000.19: Users exceeded distance: 8
+
+9000.08: User in system: 37
+9000.08: User in queue: 0
+9000.08: Change station from first to second: 11
+9000.08: Change station from second to first: 0
+9000.08: Users exceeded distance: 9
+
+10000.1: User in system: 41
+10000.1: User in queue: 0
+10000.1: Change station from first to second: 12
+10000.1: Change station from second to first: 0
+10000.1: Users exceeded distance: 10
+
 
 
 0: Simulator start 0
-43.5523: User in system: 1
-1000.03: User in system: 10
-2000.05: User in system: 14
-3000.18: User in system: 20
-4000.07: User in system: 23
-5000.08: User in system: 25
-6000.03: User in system: 27
-7000.02: User in system: 31
-8000.02: User in system: 34
+96.3994: User in system: 1
+96.3994: User in queue: 0
+96.3994: Change station from first to second: 0
+96.3994: Change station from second to first: 0
+96.3994: Users exceeded distance: 0
+
+1000.05: User in system: 4
+1000.05: User in queue: 0
+1000.05: Change station from first to second: 3
+1000.05: Change station from second to first: 0
+1000.05: Users exceeded distance: 0
+
+2000.18: User in system: 7
+2000.18: User in queue: 0
+2000.18: Change station from first to second: 4
+2000.18: Change station from second to first: 0
+2000.18: Users exceeded distance: 0
+
+3000.01: User in system: 13
+3000.01: User in queue: 0
+3000.01: Change station from first to second: 5
+3000.01: Change station from second to first: 0
+3000.01: Users exceeded distance: 0
+
+4000.09: User in system: 18
+4000.09: User in queue: 0
+4000.09: Change station from first to second: 6
+4000.09: Change station from second to first: 0
+4000.09: Users exceeded distance: 0
+
+5000.01: User in system: 27
+5000.01: User in queue: 0
+5000.01: Change station from first to second: 7
+5000.01: Change station from second to first: 0
+5000.01: Users exceeded distance: 0
+
+6000.05: User in system: 33
+6000.05: User in queue: 0
+6000.05: Change station from first to second: 8
+6000.05: Change station from second to first: 0
+6000.05: Users exceeded distance: 0
+
+7000.19: User in system: 33
+7000.19: User in queue: 0
+7000.19: Change station from first to second: 9
+7000.19: Change station from second to first: 0
+7000.19: Users exceeded distance: 0
+
+8000.08: User in system: 36
+8000.08: User in queue: 0
+8000.08: Change station from first to second: 10
+8000.08: Change station from second to first: 0
+8000.08: Users exceeded distance: 0
+
+9000.17: User in system: 39
+9000.17: User in queue: 0
+9000.17: Change station from first to second: 11
+9000.17: Change station from second to first: 0
+9000.17: Users exceeded distance: 0
+
+10000.1: User in system: 46
+10000.1: User in queue: 0
+10000.1: Change station from first to second: 12
+10000.1: Change station from second to first: 0
+10000.1: Users exceeded distance: 0
+
+11000.2: User in system: 52
+11000.2: User in queue: 0
+11000.2: Change station from first to second: 13
+11000.2: Change station from second to first: 0
+11000.2: Users exceeded distance: 0
+
+12000.1: User in system: 59
+12000.1: User in queue: 0
+12000.1: Change station from first to second: 14
+12000.1: Change station from second to first: 0
+12000.1: Users exceeded distance: 0
+
+13000: User in system: 65
+13000: User in queue: 0
+13000: Change station from first to second: 15
+13000: Change station from second to first: 0
+13000: Users exceeded distance: 0
+
+14000.2: User in system: 68
+14000.2: User in queue: 0
+14000.2: Change station from first to second: 16
+14000.2: Change station from second to first: 0
+14000.2: Users exceeded distance: 0
+
+15000.2: User in system: 71
+15000.2: User in queue: 0
+15000.2: Change station from first to second: 17
+15000.2: Change station from second to first: 0
+15000.2: Users exceeded distance: 0
+
+16000.2: User in system: 76
+16000.2: User in queue: 0
+16000.2: Change station from first to second: 18
+16000.2: Change station from second to first: 0
+16000.2: Users exceeded distance: 0
+
+17000.1: User in system: 80
+17000.1: User in queue: 0
+17000.1: Change station from first to second: 19
+17000.1: Change station from second to first: 0
+17000.1: Users exceeded distance: 0
+
+18000: User in system: 80
+18000: User in queue: 3
+18000: Change station from first to second: 19
+18000: Change station from second to first: 0
+18000: Users exceeded distance: 0
+
+19000.1: User in system: 80
+19000.1: User in queue: 1
+19000.1: Change station from first to second: 20
+19000.1: Change station from second to first: 0
+19000.1: Users exceeded distance: 0
+
+20000: User in system: 80
+20000: User in queue: 2
+20000: Change station from first to second: 22
+20000: Change station from second to first: 0
+20000: Users exceeded distance: 0
+
+21000: User in system: 80
+21000: User in queue: 7
+21000: Change station from first to second: 22
+21000: Change station from second to first: 0
+21000: Users exceeded distance: 0
+
+
+
+0: Simulator start 0
+842.195: User in system: 1
+842.195: User in queue: 0
+842.195: Change station from first to second: 0
+842.195: Change station from second to first: 0
+842.195: Users exceeded distance: 0
+
+1000.17: User in system: 2
+1000.17: User in queue: 0
+1000.17: Change station from first to second: 3
+1000.17: Change station from second to first: 0
+1000.17: Users exceeded distance: 0
+
+2000.03: User in system: 7
+2000.03: User in queue: 0
+2000.03: Change station from first to second: 4
+2000.03: Change station from second to first: 0
+2000.03: Users exceeded distance: 0
+
+3000.1: User in system: 11
+3000.1: User in queue: 0
+3000.1: Change station from first to second: 5
+3000.1: Change station from second to first: 0
+3000.1: Users exceeded distance: 0
+
+4000.03: User in system: 12
+4000.03: User in queue: 0
+4000.03: Change station from first to second: 6
+4000.03: Change station from second to first: 0
+4000.03: Users exceeded distance: 2
+
+5000.14: User in system: 15
+5000.14: User in queue: 0
+5000.14: Change station from first to second: 7
+5000.14: Change station from second to first: 0
+5000.14: Users exceeded distance: 4
+
+6000.03: User in system: 19
+6000.03: User in queue: 0
+6000.03: Change station from first to second: 8
+6000.03: Change station from second to first: 0
+6000.03: Users exceeded distance: 6
+
+7000.09: User in system: 24
+7000.09: User in queue: 0
+7000.09: Change station from first to second: 9
+7000.09: Change station from second to first: 0
+7000.09: Users exceeded distance: 7
+
+8000.07: User in system: 30
+8000.07: User in queue: 0
+8000.07: Change station from first to second: 10
+8000.07: Change station from second to first: 0
+8000.07: Users exceeded distance: 8
+
+9000.09: User in system: 31
+9000.09: User in queue: 0
+9000.09: Change station from first to second: 11
+9000.09: Change station from second to first: 0
+9000.09: Users exceeded distance: 9
+
+10000.2: User in system: 34
+10000.2: User in queue: 0
+10000.2: Change station from first to second: 12
+10000.2: Change station from second to first: 0
+10000.2: Users exceeded distance: 10
+
+11000: User in system: 33
+11000: User in queue: 0
+11000: Change station from first to second: 13
+11000: Change station from second to first: 0
+11000: Users exceeded distance: 12
+
+12000.1: User in system: 36
+12000.1: User in queue: 0
+12000.1: Change station from first to second: 14
+12000.1: Change station from second to first: 0
+12000.1: Users exceeded distance: 12
+
+13000.1: User in system: 40
+13000.1: User in queue: 0
+13000.1: Change station from first to second: 15
+13000.1: Change station from second to first: 0
+13000.1: Users exceeded distance: 13
+
+14000.1: User in system: 47
+14000.1: User in queue: 0
+14000.1: Change station from first to second: 16
+14000.1: Change station from second to first: 0
+14000.1: Users exceeded distance: 16
+
+15000.1: User in system: 51
+15000.1: User in queue: 0
+15000.1: Change station from first to second: 17
+15000.1: Change station from second to first: 0
+15000.1: Users exceeded distance: 17
+
+16000.1: User in system: 53
+16000.1: User in queue: 0
+16000.1: Change station from first to second: 18
+16000.1: Change station from second to first: 0
+16000.1: Users exceeded distance: 18
+
+
+
+0: Simulator start 0
+393.22: User in system: 1
+393.22: User in queue: 0
+393.22: Change station from first to second: 0
+393.22: Change station from second to first: 0
+393.22: Users exceeded distance: 0
+393.22: User connection breakup: 0
+
+
+1000.13: User in system: 7
+1000.13: User in queue: 0
+1000.13: Change station from first to second: 3
+1000.13: Change station from second to first: 0
+1000.13: Users exceeded distance: 0
+1000.13: User connection breakup: 0
+
+
+2000.08: User in system: 8
+2000.08: User in queue: 0
+2000.08: Change station from first to second: 4
+2000.08: Change station from second to first: 0
+2000.08: Users exceeded distance: 0
+2000.08: User connection breakup: 0
+
+
+3000.19: User in system: 12
+3000.19: User in queue: 0
+3000.19: Change station from first to second: 5
+3000.19: Change station from second to first: 0
+3000.19: Users exceeded distance: 1
+3000.19: User connection breakup: 0
+
+
+4000.12: User in system: 16
+4000.12: User in queue: 0
+4000.12: Change station from first to second: 6
+4000.12: Change station from second to first: 0
+4000.12: Users exceeded distance: 3
+4000.12: User connection breakup: 0
+
+
+5000.16: User in system: 20
+5000.16: User in queue: 0
+5000.16: Change station from first to second: 7
+5000.16: Change station from second to first: 0
+5000.16: Users exceeded distance: 4
+5000.16: User connection breakup: 0
+
+
+6000.08: User in system: 20
+6000.08: User in queue: 0
+6000.08: Change station from first to second: 8
+6000.08: Change station from second to first: 0
+6000.08: Users exceeded distance: 5
+6000.08: User connection breakup: 0
+
+
+7000.09: User in system: 22
+7000.09: User in queue: 0
+7000.09: Change station from first to second: 9
+7000.09: Change station from second to first: 0
+7000.09: Users exceeded distance: 8
+7000.09: User connection breakup: 0
+
+
+8000.04: User in system: 26
+8000.04: User in queue: 0
+8000.04: Change station from first to second: 10
+8000.04: Change station from second to first: 0
+8000.04: Users exceeded distance: 10
+8000.04: User connection breakup: 0
+
+
+9000.04: User in system: 33
+9000.04: User in queue: 0
+9000.04: Change station from first to second: 11
+9000.04: Change station from second to first: 0
+9000.04: Users exceeded distance: 11
+9000.04: User connection breakup: 0
+
+
+10000.1: User in system: 40
+10000.1: User in queue: 0
+10000.1: Change station from first to second: 12
+10000.1: Change station from second to first: 0
+10000.1: Users exceeded distance: 12
+10000.1: User connection breakup: 0
+
+
+11000.1: User in system: 41
+11000.1: User in queue: 0
+11000.1: Change station from first to second: 13
+11000.1: Change station from second to first: 0
+11000.1: Users exceeded distance: 13
+11000.1: User connection breakup: 0
+
+
+12000.2: User in system: 51
+12000.2: User in queue: 0
+12000.2: Change station from first to second: 14
+12000.2: Change station from second to first: 0
+12000.2: Users exceeded distance: 13
+12000.2: User connection breakup: 0
+
+
+13000.2: User in system: 57
+13000.2: User in queue: 0
+13000.2: Change station from first to second: 15
+13000.2: Change station from second to first: 0
+13000.2: Users exceeded distance: 13
+13000.2: User connection breakup: 0
+
+
+14000: User in system: 62
+14000: User in queue: 0
+14000: Change station from first to second: 16
+14000: Change station from second to first: 0
+14000: Users exceeded distance: 13
+14000: User connection breakup: 0
+
+
+15000.1: User in system: 65
+15000.1: User in queue: 0
+15000.1: Change station from first to second: 17
+15000.1: Change station from second to first: 0
+15000.1: Users exceeded distance: 15
+15000.1: User connection breakup: 0
+
+
+16000.1: User in system: 69
+16000.1: User in queue: 0
+16000.1: Change station from first to second: 18
+16000.1: Change station from second to first: 0
+16000.1: Users exceeded distance: 17
+16000.1: User connection breakup: 0
+
+
+17000.1: User in system: 73
+17000.1: User in queue: 0
+17000.1: Change station from first to second: 20
+17000.1: Change station from second to first: 0
+17000.1: Users exceeded distance: 18
+17000.1: User connection breakup: 0
+
+
+18000.1: User in system: 77
+18000.1: User in queue: 0
+18000.1: Change station from first to second: 21
+18000.1: Change station from second to first: 0
+18000.1: Users exceeded distance: 19
+18000.1: User connection breakup: 0
+
+
+19000.2: User in system: 80
+19000.2: User in queue: 3
+19000.2: Change station from first to second: 22
+19000.2: Change station from second to first: 0
+19000.2: Users exceeded distance: 19
+19000.2: User connection breakup: 0
+
+
+20000.1: User in system: 80
+20000.1: User in queue: 5
+20000.1: Change station from first to second: 22
+20000.1: Change station from second to first: 0
+20000.1: Users exceeded distance: 21
+20000.1: User connection breakup: 0
+
+
+21000.1: User in system: 80
+21000.1: User in queue: 8
+21000.1: Change station from first to second: 22
+21000.1: Change station from second to first: 0
+21000.1: Users exceeded distance: 22
+21000.1: User connection breakup: 0
+
+
+22000: User in system: 80
+22000: User in queue: 10
+22000: Change station from first to second: 23
+22000: Change station from second to first: 0
+22000: Users exceeded distance: 23
+22000: User connection breakup: 0
+
+
+23000.2: User in system: 80
+23000.2: User in queue: 9
+23000.2: Change station from first to second: 24
+23000.2: Change station from second to first: 0
+23000.2: Users exceeded distance: 28
+23000.2: User connection breakup: 0
+
+
+24000.1: User in system: 80
+24000.1: User in queue: 20
+24000.1: Change station from first to second: 24
+24000.1: Change station from second to first: 0
+24000.1: Users exceeded distance: 28
+24000.1: User connection breakup: 0
+
+
+25000.2: User in system: 80
+25000.2: User in queue: 28
+25000.2: Change station from first to second: 24
+25000.2: Change station from second to first: 0
+25000.2: Users exceeded distance: 29
+25000.2: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+376.973: User in system: 1
+376.973: User in queue: 0
+376.973: Change station from first to second: 0
+376.973: Change station from second to first: 0
+376.973: Users exceeded distance: 0
+376.973: User connection breakup: 0
+
+
+1000.11: User in system: 5
+1000.11: User in queue: 0
+1000.11: Change station from first to second: 3
+1000.11: Change station from second to first: 0
+1000.11: Users exceeded distance: 0
+1000.11: User connection breakup: 0
+
+
+2000.09: User in system: 12
+2000.09: User in queue: 0
+2000.09: Change station from first to second: 4
+2000.09: Change station from second to first: 0
+2000.09: Users exceeded distance: 0
+2000.09: User connection breakup: 0
+
+
+3000: User in system: 15
+3000: User in queue: 0
+3000: Change station from first to second: 5
+3000: Change station from second to first: 0
+3000: Users exceeded distance: 1
+3000: User connection breakup: 0
+
+
+4000.11: User in system: 25
+4000.11: User in queue: 0
+4000.11: Change station from first to second: 6
+4000.11: Change station from second to first: 0
+4000.11: Users exceeded distance: 1
+4000.11: User connection breakup: 0
+
+
+5000.19: User in system: 26
+5000.19: User in queue: 0
+5000.19: Change station from first to second: 7
+5000.19: Change station from second to first: 0
+5000.19: Users exceeded distance: 4
+5000.19: User connection breakup: 0
+
+
+6000.06: User in system: 30
+6000.06: User in queue: 0
+6000.06: Change station from first to second: 8
+6000.06: Change station from second to first: 0
+6000.06: Users exceeded distance: 4
+6000.06: User connection breakup: 0
+
+
+7000.1: User in system: 35
+7000.1: User in queue: 0
+7000.1: Change station from first to second: 9
+7000.1: Change station from second to first: 0
+7000.1: Users exceeded distance: 6
+7000.1: User connection breakup: 0
+
+
+8000.15: User in system: 36
+8000.15: User in queue: 0
+8000.15: Change station from first to second: 10
+8000.15: Change station from second to first: 0
+8000.15: Users exceeded distance: 6
+8000.15: User connection breakup: 0
+
+
+9000.17: User in system: 40
+9000.17: User in queue: 0
+9000.17: Change station from first to second: 11
+9000.17: Change station from second to first: 0
+9000.17: Users exceeded distance: 8
+9000.17: User connection breakup: 0
+
+
+10000.1: User in system: 40
+10000.1: User in queue: 0
+10000.1: Change station from first to second: 12
+10000.1: Change station from second to first: 0
+10000.1: Users exceeded distance: 11
+10000.1: User connection breakup: 0
+
+
+11000.1: User in system: 46
+11000.1: User in queue: 0
+11000.1: Change station from first to second: 13
+11000.1: Change station from second to first: 0
+11000.1: Users exceeded distance: 11
+11000.1: User connection breakup: 0
+
+
+12000.1: User in system: 52
+12000.1: User in queue: 0
+12000.1: Change station from first to second: 14
+12000.1: Change station from second to first: 0
+12000.1: Users exceeded distance: 12
+12000.1: User connection breakup: 0
+
+
+13000.1: User in system: 54
+13000.1: User in queue: 0
+13000.1: Change station from first to second: 15
+13000.1: Change station from second to first: 0
+13000.1: Users exceeded distance: 14
+13000.1: User connection breakup: 0
+
+
+14000.1: User in system: 58
+14000.1: User in queue: 0
+14000.1: Change station from first to second: 16
+14000.1: Change station from second to first: 0
+14000.1: Users exceeded distance: 15
+14000.1: User connection breakup: 0
+
+
+15000.1: User in system: 61
+15000.1: User in queue: 0
+15000.1: Change station from first to second: 17
+15000.1: Change station from second to first: 0
+15000.1: Users exceeded distance: 17
+15000.1: User connection breakup: 0
+
+
+16000.1: User in system: 67
+16000.1: User in queue: 0
+16000.1: Change station from first to second: 18
+16000.1: Change station from second to first: 0
+16000.1: Users exceeded distance: 17
+16000.1: User connection breakup: 0
+
+
+17000.1: User in system: 69
+17000.1: User in queue: 0
+17000.1: Change station from first to second: 19
+17000.1: Change station from second to first: 0
+17000.1: Users exceeded distance: 18
+17000.1: User connection breakup: 0
+
+
+18000: User in system: 69
+18000: User in queue: 0
+18000: Change station from first to second: 20
+18000: Change station from second to first: 0
+18000: Users exceeded distance: 20
+18000: User connection breakup: 0
+
+
+19000.1: User in system: 69
+19000.1: User in queue: 0
+19000.1: Change station from first to second: 21
+19000.1: Change station from second to first: 0
+19000.1: Users exceeded distance: 24
+19000.1: User connection breakup: 0
+
+
+20000.1: User in system: 74
+20000.1: User in queue: 0
+20000.1: Change station from first to second: 22
+20000.1: Change station from second to first: 0
+20000.1: Users exceeded distance: 25
+20000.1: User connection breakup: 0
+
+
+21000.1: User in system: 77
+21000.1: User in queue: 0
+21000.1: Change station from first to second: 23
+21000.1: Change station from second to first: 0
+21000.1: Users exceeded distance: 26
+21000.1: User connection breakup: 0
+
+
+22000.2: User in system: 80
+22000.2: User in queue: 0
+22000.2: Change station from first to second: 24
+22000.2: Change station from second to first: 0
+22000.2: Users exceeded distance: 26
+22000.2: User connection breakup: 0
+
+
+23000.1: User in system: 80
+23000.1: User in queue: 3
+23000.1: Change station from first to second: 25
+23000.1: Change station from second to first: 0
+23000.1: Users exceeded distance: 28
+23000.1: User connection breakup: 0
+
+
+24000.1: User in system: 80
+24000.1: User in queue: 13
+24000.1: Change station from first to second: 25
+24000.1: Change station from second to first: 0
+24000.1: Users exceeded distance: 29
+24000.1: User connection breakup: 0
+
+
+25000.2: User in system: 80
+25000.2: User in queue: 18
+25000.2: Change station from first to second: 25
+25000.2: Change station from second to first: 0
+25000.2: Users exceeded distance: 29
+25000.2: User connection breakup: 0
+
+
+26000.1: User in system: 80
+26000.1: User in queue: 20
+26000.1: Change station from first to second: 26
+26000.1: Change station from second to first: 0
+26000.1: Users exceeded distance: 32
+26000.1: User connection breakup: 0
+
+
+27000: User in system: 80
+27000: User in queue: 22
+27000: Change station from first to second: 26
+27000: Change station from second to first: 0
+27000: Users exceeded distance: 34
+27000: User connection breakup: 0
+
+
+28000.2: User in system: 80
+28000.2: User in queue: 25
+28000.2: Change station from first to second: 26
+28000.2: Change station from second to first: 0
+28000.2: Users exceeded distance: 36
+28000.2: User connection breakup: 0
+
+
+29000: User in system: 80
+29000: User in queue: 27
+29000: Change station from first to second: 26
+29000: Change station from second to first: 0
+29000: Users exceeded distance: 38
+29000: User connection breakup: 0
+
+
+30000.1: User in system: 80
+30000.1: User in queue: 26
+30000.1: Change station from first to second: 27
+30000.1: Change station from second to first: 0
+30000.1: Users exceeded distance: 43
+30000.1: User connection breakup: 0
+
+
+31000.1: User in system: 80
+31000.1: User in queue: 30
+31000.1: Change station from first to second: 27
+31000.1: Change station from second to first: 0
+31000.1: Users exceeded distance: 44
+31000.1: User connection breakup: 0
+
+
+32000.2: User in system: 80
+32000.2: User in queue: 28
+32000.2: Change station from first to second: 27
+32000.2: Change station from second to first: 0
+32000.2: Users exceeded distance: 47
+32000.2: User connection breakup: 0
+
+
+33000: User in system: 80
+33000: User in queue: 29
+33000: Change station from first to second: 29
+33000: Change station from second to first: 0
+33000: Users exceeded distance: 51
+33000: User connection breakup: 0
+
+
+34000.1: User in system: 80
+34000.1: User in queue: 34
+34000.1: Change station from first to second: 30
+34000.1: Change station from second to first: 0
+34000.1: Users exceeded distance: 53
+34000.1: User connection breakup: 0
+
+
+35000.1: User in system: 80
+35000.1: User in queue: 38
+35000.1: Change station from first to second: 30
+35000.1: Change station from second to first: 0
+35000.1: Users exceeded distance: 55
+35000.1: User connection breakup: 0
+
+
+36000.1: User in system: 80
+36000.1: User in queue: 43
+36000.1: Change station from first to second: 30
+36000.1: Change station from second to first: 0
+36000.1: Users exceeded distance: 56
+36000.1: User connection breakup: 0
+
+
+37000.1: User in system: 80
+37000.1: User in queue: 44
+37000.1: Change station from first to second: 31
+37000.1: Change station from second to first: 0
+37000.1: Users exceeded distance: 58
+37000.1: User connection breakup: 0
+
+
+38000.1: User in system: 80
+38000.1: User in queue: 46
+38000.1: Change station from first to second: 31
+38000.1: Change station from second to first: 0
+38000.1: Users exceeded distance: 59
+38000.1: User connection breakup: 0
+
+
+39000.1: User in system: 80
+39000.1: User in queue: 48
+39000.1: Change station from first to second: 31
+39000.1: Change station from second to first: 0
+39000.1: Users exceeded distance: 61
+39000.1: User connection breakup: 0
+
+
+40000: User in system: 80
+40000: User in queue: 53
+40000: Change station from first to second: 32
+40000: Change station from second to first: 0
+40000: Users exceeded distance: 64
+40000: User connection breakup: 0
+
+
+41000.1: User in system: 80
+41000.1: User in queue: 54
+41000.1: Change station from first to second: 33
+41000.1: Change station from second to first: 0
+41000.1: Users exceeded distance: 66
+41000.1: User connection breakup: 0
+
+
+42000: User in system: 80
+42000: User in queue: 56
+42000: Change station from first to second: 34
+42000: Change station from second to first: 0
+42000: Users exceeded distance: 67
+42000: User connection breakup: 0
+
+
+43000.1: User in system: 80
+43000.1: User in queue: 59
+43000.1: Change station from first to second: 34
+43000.1: Change station from second to first: 0
+43000.1: Users exceeded distance: 67
+43000.1: User connection breakup: 0
+
+
+44000.2: User in system: 80
+44000.2: User in queue: 57
+44000.2: Change station from first to second: 35
+44000.2: Change station from second to first: 0
+44000.2: Users exceeded distance: 72
+44000.2: User connection breakup: 0
+
+
+45000.1: User in system: 80
+45000.1: User in queue: 59
+45000.1: Change station from first to second: 35
+45000.1: Change station from second to first: 0
+45000.1: Users exceeded distance: 73
+45000.1: User connection breakup: 0
+
+
+46000: User in system: 80
+46000: User in queue: 57
+46000: Change station from first to second: 37
+46000: Change station from second to first: 0
+46000: Users exceeded distance: 77
+46000: User connection breakup: 0
+
+
+47000.1: User in system: 80
+47000.1: User in queue: 53
+47000.1: Change station from first to second: 38
+47000.1: Change station from second to first: 0
+47000.1: Users exceeded distance: 83
+47000.1: User connection breakup: 0
+
+
+48000: User in system: 80
+48000: User in queue: 58
+48000: Change station from first to second: 38
+48000: Change station from second to first: 0
+48000: Users exceeded distance: 84
+48000: User connection breakup: 0
+
+

@@ -23,7 +23,6 @@ int main()
     User *actualUser = nullptr;
     Logger logger;
     simulator.m_event = false;
-    int counter = 0;
 
     while (1)
     {
@@ -55,9 +54,9 @@ int main()
             }
             else if (actualUser->m_raportTime < simulator.m_userGeneratorTime)
             {
-                simulator.m_userRaportFlag = true;
                 actualUser->updatePosition();
                 simulator.m_simulatorTime += 0.2;
+                simulator.m_userRaportFlag = true;
             }
             else if (actualUser->m_raportTime == simulator.m_userGeneratorTime)
             {
@@ -85,6 +84,7 @@ int main()
             if (simulator.m_userRaportFlag == true && actualUser->getPosition() > 3000)
             {
                 network.removeUserFromSytem(*actualUser);
+                simulator.m_counter[EXCEEDED_DISTANCE]++;
                 actualUser = &network.m_activeUserListInSystem.front();
                 simulator.m_userRaportFlag = false;
                 simulator.m_event = true;
@@ -99,6 +99,7 @@ int main()
                 actualUser->m_TTTSecondToFirst = 0;
                 simulator.m_event = true;
             }
+            /* change station from second to first */
             else if (actualUser->getConnection() == BASE_SECOND_ENUM &&
                      simulator.m_userRaportFlag == true &&
                      actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), ALPHA) &&
@@ -117,28 +118,25 @@ int main()
             }
             else if(simulator.m_userRaportFlag == true)
             {
-                cout << "Change station error\n";
+                actualUser->m_TTTSecondToFirst = 0;
+                actualUser->m_TTTfirstToSecond = 0;
             }
 
             if (simulator.m_userRaportFlag == true &&
                 actualUser->m_TTTfirstToSecond >= 5 &&
                 actualUser->getConnection() == BASE_FIRST_ENUM)
             {
-                cout << "Change station" << endl;
-                /* code to change station */
-                simulator.m_event = true;
                 actualUser->updateConnection(BASE_SECOND_ENUM);
-                counter++;
+                simulator.m_counter[CHANGE_STATION_FTS]++;
+                simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
                 actualUser->m_TTTSecondToFirst >= 5 &&
                 actualUser->getConnection() == BASE_SECOND_ENUM)
             {
-                cout << "Change station" << endl;
-                /* code to change station */
-                simulator.m_event = true;
                 actualUser->updateConnection(BASE_FIRST_ENUM);
-                counter++;
+                simulator.m_counter[CHANGE_STATION_STF]++;
+                simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
                 (actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), DELTA) ||
@@ -146,6 +144,7 @@ int main()
             {
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
+                simulator.m_counter[CONNECTION_BREAKUP]++;
                 simulator.m_userRaportFlag = false;
                 simulator.m_event = true;
             }
@@ -161,15 +160,20 @@ int main()
         cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
-        cout << "Change number: " << counter << endl;
 
         if(simulator.m_simulatorTime > logger.m_loggerTimer)
         {
             logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
-            logger.m_loggerTimer += 1000;
+            logger.addToFile(simulator.m_simulatorTime, USER_IN_QUEUE_ENUM, size(network.m_userQueue));
+            logger.addToFile(simulator.m_simulatorTime, CHANGE_STATION_FTS_ENUM, simulator.m_counter[CHANGE_STATION_FTS]);
+            logger.addToFile(simulator.m_simulatorTime, CHANGE_STATION_STF_ENUM, simulator.m_counter[CHANGE_STATION_STF]);
+            logger.addToFile(simulator.m_simulatorTime, EXCEEDED_DISTANCE_ENUM, simulator.m_counter[EXCEEDED_DISTANCE]);
+            logger.addToFile(simulator.m_simulatorTime, CONNECTION_BREAKUP_ENUM, simulator.m_counter[CONNECTION_BREAKUP]);
+            logger.addToFile(0, NEWLINE_ENUM, 0);
+            logger.m_loggerTimer += LOGGER_OFFSET;
         }
 
-        usleep(50);
+        usleep(5);
     }
 
     return 0;

@@ -4,8 +4,14 @@
 
 #include <random>
 #include <iostream>
-#include "parameters.hpp"
+#include <cstring>
 #include <cmath>
+#include "parameters.hpp"
+
+#define CHANGE_STATION_FTS 0
+#define CHANGE_STATION_STF 1
+#define EXCEEDED_DISTANCE 2
+#define CONNECTION_BREAKUP 3
 
 class Simulator {
 public:
@@ -20,9 +26,8 @@ public:
     double m_leastTime;
     int m_eventLoopIterator;
     double m_simulatorTime;
-
+    int m_counter[4];
 private:
-
 };
 
 #endif
