@@ -3,7 +3,7 @@
 #define PARAMETER_HPP
 
 /* project parameters */
-#define LAMBDA 0.005
+#define LAMBDA 0.5
 #define ALPHA 3
 #define DELTA 20
 

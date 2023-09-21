@@ -17,14 +17,14 @@ class Simulator {
 public:
     Simulator();
     ~Simulator();
-    double generateUserAppearanceTime(double t_lambda);
+    double generateUserAppearanceTime();
     void updateSimulatorTime(double t_updateTime);
 
     bool m_event;
     bool m_userRaportFlag;
     double m_userGeneratorTime;
     double m_leastTime;
-    int m_eventLoopIterator;
+    bool m_changeStationFlag;
     double m_simulatorTime;
     int m_counter[4];
 private:

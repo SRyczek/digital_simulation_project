@@ -1,0 +1,30 @@
+Start testing: Sep 20 22:25 CEST
+----------------------------------------------------------
+1/1 Testing: Test1
+1/1 Test: Test1
+Command: "/home/seb/Desktop/projects/digital_simulation_project/build/tests/bufferTest" "test1"
+Directory: /home/seb/Desktop/projects/digital_simulation_project/build/tests
+"Test1" start time: Sep 20 22:25 CEST
+Output:
+----------------------------------------------------------
+Create User
+test-140.469
+test-151.204
+test-149.218
+test-147.628
+test-152.239
+test-154.644
+test-156.017
+test-151.401
+test-145.977
+test-141.28
+Deleted user
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Test1" end time: Sep 20 22:25 CEST
+"Test1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 20 22:25 CEST

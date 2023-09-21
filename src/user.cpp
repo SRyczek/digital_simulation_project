@@ -3,6 +3,9 @@
 
 using namespace std;
 
+std::mt19937 generator(45218965);
+std::normal_distribution<double> normDist(0, 4);
+
 User::User(double t_simulatorTime)
 {
     cout << "Create User" << endl;
@@ -35,12 +38,10 @@ void User::updateRaportTime(double t_simulatorTime)
     m_raportTime = t_simulatorTime + 0.02;
 }
 
-double User::calculatePower(double t_basePosition)
+void User::calculatePower(double t_baseFirstPosition, double t_baseSecondPosition)
 {
-    double distanceToBase = abs(m_position - t_basePosition);
-    std::mt19937 gen(123);
-    std::normal_distribution<double> dist(0, 4);
-    return (4.61 - 22 * log10(distanceToBase) + dist(gen));
+    m_firstBtsPower =  (4.61 - 22 * log(abs(m_position - t_baseFirstPosition)) + normDist(generator));
+    m_secondBtsPower = (4.61 - 22 * log(abs(m_position - t_baseSecondPosition)) + normDist(generator));
 }
 
 double User::getPosition(void)
@@ -60,10 +61,8 @@ void User::updateConnection(connection_t t_connection)
 
 bool User::greaterThanPowerPlus(double t_basePositionX, double t_basePositionY, double t_parameter)
 {
-    double powerX = calculatePower(t_basePositionX);
-    double powerY = calculatePower(t_basePositionY);
-
-    if (powerX > powerY + t_parameter)
+    cout << "Power1: " << m_firstBtsPower << " Power2: " << m_secondBtsPower << endl;
+    if (m_firstBtsPower > m_secondBtsPower + t_parameter)
     {
         return true;
     }

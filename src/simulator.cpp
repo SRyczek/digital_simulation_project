@@ -3,10 +3,16 @@
 
 using namespace std;
 
+random_device rd;
+mt19937 gen(rd());
+exponential_distribution<> dist(LAMBDA);
+
 Simulator::Simulator()
 {
+    m_event = true;
+    m_changeStationFlag = true;
     m_simulatorTime = 0;
-    m_userGeneratorTime = generateUserAppearanceTime(LAMBDA);
+    m_userGeneratorTime = generateUserAppearanceTime();
     memset(m_counter, 0, sizeof(m_counter));
 }
 
@@ -15,11 +21,8 @@ Simulator::~Simulator()
     
 }
 
-double Simulator::generateUserAppearanceTime(double t_lambda)
+double Simulator::generateUserAppearanceTime()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::exponential_distribution<> dist(t_lambda);
     cout << "Generator user time: " << dist(gen) << endl;
     return dist(gen);
 }

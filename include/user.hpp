@@ -22,7 +22,7 @@ public:
     double getPosition(void);
     connection_t getConnection(void);
     void updateConnection(connection_t t_connection);
-    double calculatePower(double t_basePosition);
+    void calculatePower(double t_baseFirstPosition, double t_baseSecondPosition);
     bool greaterThanPowerPlus(double t_basePositionX, double t_basePositionY, double t_parameter);
 
     bool operator == (const User& s) const { return m_position == s.m_position &&
@@ -35,10 +35,13 @@ public:
     int m_TTTfirstToSecond;
     int m_TTTSecondToFirst;
     connection_t m_connection;
+    double m_firstBtsPower;
+    double m_secondBtsPower;
 
 private:
     double m_speed;
     double m_position;
+
 };
 
 

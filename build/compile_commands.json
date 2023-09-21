@@ -28,5 +28,10 @@
   "directory": "/home/seb/Desktop/projects/digital_simulation_project/build",
   "command": "/usr/bin/g++ -Dinclude_EXPORTS -I/.. -g -fPIC -o src/CMakeFiles/include.dir/logger.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/src/logger.cpp",
   "file": "/home/seb/Desktop/projects/digital_simulation_project/src/logger.cpp"
+},
+{
+  "directory": "/home/seb/Desktop/projects/digital_simulation_project/build",
+  "command": "/usr/bin/g++ -I/.. -g -o tests/CMakeFiles/bufferTest.dir/test1.cpp.o -c /home/seb/Desktop/projects/digital_simulation_project/tests/test1.cpp",
+  "file": "/home/seb/Desktop/projects/digital_simulation_project/tests/test1.cpp"
 }
 ]

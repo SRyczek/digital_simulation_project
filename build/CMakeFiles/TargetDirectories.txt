@@ -1,8 +1,15 @@
+/home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles/test.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles/edit_cache.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/CMakeFiles/rebuild_cache.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/include/CMakeFiles/test.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/include/CMakeFiles/edit_cache.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/include/CMakeFiles/rebuild_cache.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/src/CMakeFiles/main.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/src/CMakeFiles/include.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/src/CMakeFiles/test.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/src/CMakeFiles/edit_cache.dir
 /home/seb/Desktop/projects/digital_simulation_project/build/src/CMakeFiles/rebuild_cache.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/tests/CMakeFiles/bufferTest.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/tests/CMakeFiles/test.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/tests/CMakeFiles/edit_cache.dir
+/home/seb/Desktop/projects/digital_simulation_project/build/tests/CMakeFiles/rebuild_cache.dir

@@ -32,7 +32,7 @@ int main()
             User *user = new User(simulator.m_simulatorTime);
             simulator.m_simulatorTime = simulator.m_userGeneratorTime;
             network.addUserToQueue(*user);
-            simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+            simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
             actualUser = user;
         }
         else
@@ -42,6 +42,7 @@ int main()
                 if (user.m_raportTime < actualUser->m_raportTime)
                 {
                     actualUser = &user;
+                    actualUser->calculatePower(baseFirst.getPosition(), baseSecond.getPosition());
                 }
             }
             if (actualUser->m_raportTime > simulator.m_userGeneratorTime)
@@ -49,7 +50,7 @@ int main()
                 User *user = new User(simulator.m_simulatorTime);
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
                 network.addUserToQueue(*user);
-                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
                 simulator.m_userRaportFlag = false;
             }
             else if (actualUser->m_raportTime < simulator.m_userGeneratorTime)
@@ -63,14 +64,14 @@ int main()
                 User *user = new User(simulator.m_simulatorTime);
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
                 network.addUserToQueue(*user);
-                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime(LAMBDA);
+                simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
                 simulator.m_userRaportFlag = true;
             }
             cout << "GT: " << simulator.m_userGeneratorTime << endl;
             cout << "RT: " << actualUser->m_raportTime << endl;
         }
-        simulator.m_eventLoopIterator = 0;
         simulator.m_event = true;
+        simulator.m_changeStationFlag = true;
         while (simulator.m_event == true)
         {
             simulator.m_event = false;
@@ -93,33 +94,40 @@ int main()
             if (actualUser->getConnection() == BASE_FIRST_ENUM &&
                 simulator.m_userRaportFlag == true &&
                 actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), ALPHA) &&
-                simulator.m_eventLoopIterator == 0)
+                simulator.m_changeStationFlag == true)
             {
                 actualUser->m_TTTfirstToSecond++;
                 actualUser->m_TTTSecondToFirst = 0;
                 simulator.m_event = true;
+                simulator.m_changeStationFlag = false;
             }
             /* change station from second to first */
             else if (actualUser->getConnection() == BASE_SECOND_ENUM &&
                      simulator.m_userRaportFlag == true &&
                      actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), ALPHA) &&
-                     simulator.m_eventLoopIterator == 0)
+                     simulator.m_changeStationFlag == true)
             {
                 actualUser->m_TTTSecondToFirst++;
                 actualUser->m_TTTfirstToSecond = 0;
+                simulator.m_changeStationFlag = false;
                 simulator.m_event = true;
             }
             else if (actualUser->getConnection() == NO_BASE_STATION_CONNECTED &&
                      simulator.m_userRaportFlag == true &&
-                     simulator.m_eventLoopIterator == 0)
+                     simulator.m_changeStationFlag == true)
             {
                 actualUser->m_TTTSecondToFirst = 0;
                 actualUser->m_TTTfirstToSecond = 0;
+                simulator.m_changeStationFlag = false;
+                simulator.m_event = true;
             }
-            else if(simulator.m_userRaportFlag == true)
+            else if (simulator.m_userRaportFlag == true &&
+                     simulator.m_changeStationFlag == true)
             {
                 actualUser->m_TTTSecondToFirst = 0;
                 actualUser->m_TTTfirstToSecond = 0;
+                simulator.m_event = true;
+                simulator.m_changeStationFlag = false;
             }
 
             if (simulator.m_userRaportFlag == true &&
@@ -128,6 +136,7 @@ int main()
             {
                 actualUser->updateConnection(BASE_SECOND_ENUM);
                 simulator.m_counter[CHANGE_STATION_FTS]++;
+                actualUser->m_TTTfirstToSecond = 0;
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
@@ -136,20 +145,20 @@ int main()
             {
                 actualUser->updateConnection(BASE_FIRST_ENUM);
                 simulator.m_counter[CHANGE_STATION_STF]++;
+                actualUser->m_TTTSecondToFirst = 0;
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
                 (actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), DELTA) ||
                  actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), DELTA)))
             {
+                cout << "Test" << endl;
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
                 simulator.m_counter[CONNECTION_BREAKUP]++;
                 simulator.m_userRaportFlag = false;
                 simulator.m_event = true;
             }
-
-            simulator.m_eventLoopIterator++;
         }
 
         if (simulator.m_userRaportFlag == true)
@@ -161,7 +170,7 @@ int main()
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
 
-        if(simulator.m_simulatorTime > logger.m_loggerTimer)
+        if (simulator.m_simulatorTime > logger.m_loggerTimer)
         {
             logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
             logger.addToFile(simulator.m_simulatorTime, USER_IN_QUEUE_ENUM, size(network.m_userQueue));
@@ -173,7 +182,7 @@ int main()
             logger.m_loggerTimer += LOGGER_OFFSET;
         }
 
-        usleep(5);
+        usleep(1000);
     }
 
     return 0;

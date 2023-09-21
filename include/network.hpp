@@ -6,8 +6,6 @@
 #include <queue>
 #include "user.hpp"
 
-#define X_VALUE 2000
-
 class Network {
 public:
 
