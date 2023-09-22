@@ -8,11 +8,13 @@ using namespace std;
 
 int main()
 {
-    User user(0);
+    User user(2000);
 
     for(int i = 0; i < 10; i++)
     {
-        //cout << "test" << user.calculatePower(3000) << endl;
+        user.calculatePower(0, 5000);
+        cout << "First base: " << user.m_firstBtsPower << "   ";
+        cout << "Second base: " << user.m_secondBtsPower << "   ";
         
     }
 

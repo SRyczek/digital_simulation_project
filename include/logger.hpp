@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "parameters.hpp"
+
 typedef enum
 {
     START_MESSAGE_ENUM,
@@ -24,10 +26,11 @@ public:
     Logger();
     ~Logger();
     void addToFile(double t_simulatorTime, message_t t_message, int t_data);
-    double m_loggerTimer;
+    double getLoggerTimer();
+    void updateLoggerTimer();
 
 private:
-
+    double m_loggerTimer;
 };
 
 #endif

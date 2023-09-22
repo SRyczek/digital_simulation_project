@@ -11,7 +11,7 @@ User::User(double t_simulatorTime)
     cout << "Create User" << endl;
     m_speed = calculateSpeed();
     m_position = 2000;
-    m_raportTime = t_simulatorTime + 0.02;
+    updateRaportTime(t_simulatorTime);
     m_connection = BASE_FIRST_ENUM;
 }
 
@@ -19,6 +19,12 @@ User::~User()
 {
     cout << "Deleted user" << endl;
 }
+
+double User::getRaportTime(void)
+{
+    return m_raportTime;
+}
+
 
 double User::calculateSpeed(void)
 {
@@ -54,7 +60,33 @@ connection_t User::getConnection(void)
     return m_connection;
 }
 
-void User::updateConnection(connection_t t_connection)
+double User::getBaseData(base_message_t t_messageType)
+{
+    if (t_messageType == BASE_FIRST_POWER_ENUM)
+    {
+        return m_firstBase.power;
+    }
+    else if (t_messageType == BASE_SECOND_POWER_ENUM)
+    {
+        return m_secondBase.power;
+    }
+    else if (t_messageType == TIME_TO_TRIGGER_FIRST_ACTIVE_ENUM)
+    {
+        return m_firstBase.timeToTrigger;
+    }
+    else if (t_messageType == TIME_TO_TRIGGER_SECOND_ACTIVE_ENUM)
+    {
+        return m_secondBase.timeToTrigger;
+    }
+    else 
+    {
+        cerr << "getBaseData ERROR" << endl;
+        exit(-1);
+    }
+}
+
+
+    void User::updateConnection(connection_t t_connection)
 {
     m_connection = t_connection;
 }

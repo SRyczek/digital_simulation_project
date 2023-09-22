@@ -1,6 +1,8 @@
 
 #include <iostream>
+
 #include <unistd.h>
+
 #include "../include/base.hpp"
 #include "../include/user.hpp"
 #include "../include/simulator.hpp"
@@ -39,13 +41,13 @@ int main()
         {
             for (User &user : network.m_activeUserListInSystem)
             {
-                if (user.m_raportTime < actualUser->m_raportTime)
+                if (user.getRaportTime() < actualUser->getRaportTime())
                 {
                     actualUser = &user;
                     actualUser->calculatePower(baseFirst.getPosition(), baseSecond.getPosition());
                 }
             }
-            if (actualUser->m_raportTime > simulator.m_userGeneratorTime)
+            if (actualUser->getRaportTime() > simulator.m_userGeneratorTime)
             {
                 User *user = new User(simulator.m_simulatorTime);
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
@@ -53,13 +55,13 @@ int main()
                 simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
                 simulator.m_userRaportFlag = false;
             }
-            else if (actualUser->m_raportTime < simulator.m_userGeneratorTime)
+            else if (actualUser->getRaportTime() < simulator.m_userGeneratorTime)
             {
                 actualUser->updatePosition();
                 simulator.m_simulatorTime += 0.2;
                 simulator.m_userRaportFlag = true;
             }
-            else if (actualUser->m_raportTime == simulator.m_userGeneratorTime)
+            else if (actualUser->getRaportTime() == simulator.m_userGeneratorTime)
             {
                 User *user = new User(simulator.m_simulatorTime);
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
@@ -68,7 +70,7 @@ int main()
                 simulator.m_userRaportFlag = true;
             }
             cout << "GT: " << simulator.m_userGeneratorTime << endl;
-            cout << "RT: " << actualUser->m_raportTime << endl;
+            cout << "RT: " << actualUser->getRaportTime() << endl;
         }
         simulator.m_event = true;
         simulator.m_changeStationFlag = true;
@@ -152,7 +154,6 @@ int main()
                 (actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), DELTA) ||
                  actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), DELTA)))
             {
-                cout << "Test" << endl;
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
                 simulator.m_counter[CONNECTION_BREAKUP]++;
@@ -170,7 +171,7 @@ int main()
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
 
-        if (simulator.m_simulatorTime > logger.m_loggerTimer)
+        if (simulator.m_simulatorTime > logger.getLoggerTimer())
         {
             logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
             logger.addToFile(simulator.m_simulatorTime, USER_IN_QUEUE_ENUM, size(network.m_userQueue));
@@ -179,7 +180,7 @@ int main()
             logger.addToFile(simulator.m_simulatorTime, EXCEEDED_DISTANCE_ENUM, simulator.m_counter[EXCEEDED_DISTANCE]);
             logger.addToFile(simulator.m_simulatorTime, CONNECTION_BREAKUP_ENUM, simulator.m_counter[CONNECTION_BREAKUP]);
             logger.addToFile(0, NEWLINE_ENUM, 0);
-            logger.m_loggerTimer += LOGGER_OFFSET;
+            logger.updateLoggerTimer();
         }
 
         usleep(1000);

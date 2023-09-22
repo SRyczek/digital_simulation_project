@@ -1578,3 +1578,91 @@
 2000.18: User connection breakup: 736
 
 
+
+
+0: Simulator start 0
+2.25961: User in system: 1
+2.25961: User in queue: 0
+2.25961: Change station from first to second: 0
+2.25961: Change station from second to first: 0
+2.25961: Users exceeded distance: 0
+2.25961: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+1.02328: User in system: 1
+1.02328: User in queue: 0
+1.02328: Change station from first to second: 0
+1.02328: Change station from second to first: 0
+1.02328: Users exceeded distance: 0
+1.02328: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.90398: User in system: 1
+0.90398: User in queue: 0
+0.90398: Change station from first to second: 0
+0.90398: Change station from second to first: 0
+0.90398: Users exceeded distance: 0
+0.90398: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.409422: User in system: 1
+0.409422: User in queue: 0
+0.409422: Change station from first to second: 0
+0.409422: Change station from second to first: 0
+0.409422: Users exceeded distance: 0
+0.409422: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.534018: User in system: 1
+0.534018: User in queue: 0
+0.534018: Change station from first to second: 0
+0.534018: Change station from second to first: 0
+0.534018: Users exceeded distance: 0
+0.534018: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.129738: User in system: 1
+0.129738: User in queue: 0
+0.129738: Change station from first to second: 0
+0.129738: Change station from second to first: 0
+0.129738: Users exceeded distance: 0
+0.129738: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.779009: User in system: 1
+0.779009: User in queue: 0
+0.779009: Change station from first to second: 0
+0.779009: Change station from second to first: 0
+0.779009: Users exceeded distance: 0
+0.779009: User connection breakup: 0
+
+
+
+
+0: Simulator start 0
+0.764236: User in system: 1
+0.764236: User in queue: 0
+0.764236: Change station from first to second: 0
+0.764236: Change station from second to first: 0
+0.764236: Users exceeded distance: 0
+0.764236: User connection breakup: 0
+
+

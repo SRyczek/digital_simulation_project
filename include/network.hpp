@@ -4,6 +4,7 @@
 
 #include <list>
 #include <queue>
+
 #include "user.hpp"
 
 class Network {
@@ -17,6 +18,7 @@ public:
     void addUserToSystem();
     void removeUserFromSytem(User &t_user);
     void addUserToQueue(User &t_user);
+
 private:
 
 };
