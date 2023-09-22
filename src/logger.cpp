@@ -29,7 +29,7 @@ void Logger::addToFile(double t_simulatorTime, message_t t_message, int t_data)
     if (!file.is_open())
     {
         cerr << "Cannot open file" << endl;
-        //exit(-1);
+        exit(-1);
     }
     switch (t_message)
     {

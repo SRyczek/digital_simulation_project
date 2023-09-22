@@ -44,10 +44,61 @@ void User::updateRaportTime(double t_simulatorTime)
     m_raportTime = t_simulatorTime + 0.02;
 }
 
+int User::getTimeToTrigger(int t_baseNum)
+{
+    if (t_baseNum == BASE_FIRST_NUM)
+    {
+        return m_firstBase.timeToTrigger;
+    }
+    else if (t_baseNum == BASE_SECOND_NUM)
+    {
+        return m_secondBase.timeToTrigger;
+    }
+    else
+    {
+         cerr << "getTimeToTrigger ERROR" << endl;
+         exit(-1);
+    }
+}
+
+void User::updateTimeToTrigger(int t_baseNum)
+{
+    if (t_baseNum == BASE_FIRST_NUM)
+    {
+        m_firstBase.timeToTrigger++;
+    }
+    else if (t_baseNum == BASE_SECOND_NUM)
+    {
+        m_secondBase.timeToTrigger++;
+    }
+    else
+    {
+        cerr << "updateTimeToTrigger ERROR" << endl;
+        exit(-1);
+    }
+}
+
+void User::resetTimeToTrigger(int t_baseNum)
+{
+    if (t_baseNum == BASE_FIRST_NUM)
+    {
+        m_firstBase.timeToTrigger = 0;
+    }
+    else if (t_baseNum == BASE_SECOND_NUM)
+    {
+        m_secondBase.timeToTrigger = 0;
+    }
+    else
+    {
+        cerr << "resetTimeToTrigger ERROR" << endl;
+        exit(-1);
+    }
+}
+
 void User::calculatePower(double t_baseFirstPosition, double t_baseSecondPosition)
 {
-    m_firstBtsPower =  (4.61 - 22 * log(abs(m_position - t_baseFirstPosition)) + normDist(generator));
-    m_secondBtsPower = (4.61 - 22 * log(abs(m_position - t_baseSecondPosition)) + normDist(generator));
+    m_firstBase.power = (4.61 - 22 * log(abs(m_position - t_baseFirstPosition)) + normDist(generator));
+    m_secondBase.power = (4.61 - 22 * log(abs(m_position - t_baseSecondPosition)) + normDist(generator));
 }
 
 double User::getPosition(void)
@@ -60,47 +111,56 @@ connection_t User::getConnection(void)
     return m_connection;
 }
 
-double User::getBaseData(base_message_t t_messageType)
+double User::getBasePower(int t_baseNum)
 {
-    if (t_messageType == BASE_FIRST_POWER_ENUM)
+    if (t_baseNum == BASE_FIRST_NUM)
     {
         return m_firstBase.power;
     }
-    else if (t_messageType == BASE_SECOND_POWER_ENUM)
+    else if (t_baseNum == BASE_SECOND_NUM)
     {
         return m_secondBase.power;
     }
-    else if (t_messageType == TIME_TO_TRIGGER_FIRST_ACTIVE_ENUM)
+    else
     {
-        return m_firstBase.timeToTrigger;
-    }
-    else if (t_messageType == TIME_TO_TRIGGER_SECOND_ACTIVE_ENUM)
-    {
-        return m_secondBase.timeToTrigger;
-    }
-    else 
-    {
-        cerr << "getBaseData ERROR" << endl;
+        cerr << "getBasePower ERROR" << endl;
         exit(-1);
     }
 }
 
-
-    void User::updateConnection(connection_t t_connection)
+void User::updateConnection(connection_t t_connection)
 {
     m_connection = t_connection;
 }
 
-bool User::greaterThanPowerPlus(double t_basePositionX, double t_basePositionY, double t_parameter)
+bool User::greaterThanPowerPlus(int t_baseNumConnected, double t_parameter)
 {
-    cout << "Power1: " << m_firstBtsPower << " Power2: " << m_secondBtsPower << endl;
-    if (m_firstBtsPower > m_secondBtsPower + t_parameter)
+
+    if (t_baseNumConnected == BASE_FIRST_NUM)
     {
-        return true;
+        if (m_firstBase.power > m_secondBase.power + t_parameter)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else if (t_baseNumConnected == BASE_SECOND_NUM)
+    {
+        if (m_secondBase.power > m_firstBase.power + t_parameter)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     else 
     {
-        return false;
+        cerr << "Greater than power plus ERROR" << endl;
+        exit(-1);
     }
-
 }

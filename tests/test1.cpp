@@ -13,8 +13,8 @@ int main()
     for(int i = 0; i < 10; i++)
     {
         user.calculatePower(0, 5000);
-        cout << "First base: " << user.m_firstBtsPower << "   ";
-        cout << "Second base: " << user.m_secondBtsPower << "   ";
+        //cout << "First base: " << user.m_firstBtsPower << "   ";
+        //cout << "Second base: " << user.m_secondBtsPower << "   ";
         
     }
 

@@ -28,6 +28,7 @@ public:
     bool m_changeStationFlag;
     double m_simulatorTime;
     int m_counter[4];
+
 private:
 };
 

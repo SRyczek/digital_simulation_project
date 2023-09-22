@@ -102,5 +102,4 @@ pomocniczego obiektu user i robie na nim operacje. Jesli operacje nie usuwaja go
 to po prostu go usuwam i nie wrzucam do systemu.
 
 ToDo:
-CalculatePower jest w zmalysle zla funkcja bo za kazdym razem gdy jest wywolywana wartosc losowa jesst przydzielana. Trzeba teraz 
-zaimplementowac w taki sposob, ze przy wybieraniu uzytkownika moc jest przydzielona raz, i wtedy tylko sprawdzana.
+Dokonczyc timeToTrigger

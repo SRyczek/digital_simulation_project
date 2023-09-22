@@ -95,64 +95,57 @@ int main()
             /* change station from first to second */
             if (actualUser->getConnection() == BASE_FIRST_ENUM &&
                 simulator.m_userRaportFlag == true &&
-                actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), ALPHA) &&
+                actualUser->greaterThanPowerPlus(BASE_FIRST_NUM, ALPHA) &&
                 simulator.m_changeStationFlag == true)
             {
-                actualUser->m_TTTfirstToSecond++;
-                actualUser->m_TTTSecondToFirst = 0;
+                actualUser->updateTimeToTrigger(BASE_FIRST_NUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
                 simulator.m_event = true;
                 simulator.m_changeStationFlag = false;
             }
             /* change station from second to first */
             else if (actualUser->getConnection() == BASE_SECOND_ENUM &&
                      simulator.m_userRaportFlag == true &&
-                     actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), ALPHA) &&
+                     actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, ALPHA) &&
                      simulator.m_changeStationFlag == true)
             {
-                actualUser->m_TTTSecondToFirst++;
-                actualUser->m_TTTfirstToSecond = 0;
-                simulator.m_changeStationFlag = false;
-                simulator.m_event = true;
-            }
-            else if (actualUser->getConnection() == NO_BASE_STATION_CONNECTED &&
-                     simulator.m_userRaportFlag == true &&
-                     simulator.m_changeStationFlag == true)
-            {
-                actualUser->m_TTTSecondToFirst = 0;
-                actualUser->m_TTTfirstToSecond = 0;
+                actualUser->updateTimeToTrigger(BASE_SECOND_NUM);
+                actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
                 simulator.m_changeStationFlag = false;
                 simulator.m_event = true;
             }
             else if (simulator.m_userRaportFlag == true &&
                      simulator.m_changeStationFlag == true)
             {
-                actualUser->m_TTTSecondToFirst = 0;
-                actualUser->m_TTTfirstToSecond = 0;
-                simulator.m_event = true;
+                actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
                 simulator.m_changeStationFlag = false;
+                simulator.m_event = true;
             }
 
             if (simulator.m_userRaportFlag == true &&
-                actualUser->m_TTTfirstToSecond >= 5 &&
+                actualUser->getTimeToTrigger(BASE_FIRST_NUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_FIRST_ENUM)
             {
                 actualUser->updateConnection(BASE_SECOND_ENUM);
                 simulator.m_counter[CHANGE_STATION_FTS]++;
-                actualUser->m_TTTfirstToSecond = 0;
+                actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_ENUM);
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
-                actualUser->m_TTTSecondToFirst >= 5 &&
+                actualUser->getTimeToTrigger(BASE_SECOND_ENUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_SECOND_ENUM)
             {
                 actualUser->updateConnection(BASE_FIRST_ENUM);
                 simulator.m_counter[CHANGE_STATION_STF]++;
-                actualUser->m_TTTSecondToFirst = 0;
+                actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_ENUM);
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
-                (actualUser->greaterThanPowerPlus(baseFirst.getPosition(), baseSecond.getPosition(), DELTA) ||
-                 actualUser->greaterThanPowerPlus(baseSecond.getPosition(), baseFirst.getPosition(), DELTA)))
+                (actualUser->greaterThanPowerPlus(BASE_FIRST_NUM, DELTA) ||
+                 actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, DELTA)))
             {
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
@@ -171,7 +164,8 @@ int main()
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
 
-        if (simulator.m_simulatorTime > logger.getLoggerTimer())
+
+        if (simulator.m_simulatorTime > logger.getLoggerTimer() && LOGGER_FLAG == 1)
         {
             logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
             logger.addToFile(simulator.m_simulatorTime, USER_IN_QUEUE_ENUM, size(network.m_userQueue));

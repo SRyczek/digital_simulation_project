@@ -8,6 +8,9 @@
 
 #include "parameters.hpp"
 
+#define BASE_FIRST_NUM 0
+#define BASE_SECOND_NUM 1
+
 typedef enum
 {
     BASE_FIRST_ENUM,
@@ -15,13 +18,6 @@ typedef enum
     NO_BASE_STATION_CONNECTED
 } connection_t;
 
-typedef enum
-{
-    BASE_FIRST_POWER_ENUM,
-    BASE_SECOND_POWER_ENUM,
-    TIME_TO_TRIGGER_FIRST_ACTIVE_ENUM,
-    TIME_TO_TRIGGER_SECOND_ACTIVE_ENUM
-} base_message_t;
 
 typedef struct 
 {
@@ -38,11 +34,15 @@ public:
     double getPosition(void);
     connection_t getConnection(void);
     double getRaportTime(void);
-    double getBaseData(base_message_t t_messageType);
+    double getBasePower(int t_baseNum);
+    int getTimeToTrigger(int t_baseNum);
 
     void updatePosition(void);
     void updateConnection(connection_t t_connection);
     void updateRaportTime(double t_simulatorTime);
+    void updateTimeToTrigger(int t_baseNum);
+
+    void resetTimeToTrigger(int t_baseNum);
 
     bool operator==(const User &s) const { return m_position == s.m_position &&
                                                   m_speed == s.m_speed &&
@@ -54,13 +54,8 @@ public:
 
 
     void calculatePower(double t_baseFirstPosition, double t_baseSecondPosition);
-    bool greaterThanPowerPlus(double t_basePositionX, double t_basePositionY, double t_parameter);
+    bool greaterThanPowerPlus(int t_baseNumConnected, double t_parameter);
     double calculateSpeed(void);
-
-    int m_TTTfirstToSecond;
-    int m_TTTSecondToFirst;
-    double m_firstBtsPower;
-    double m_secondBtsPower;
 
 private:
     double m_speed;
