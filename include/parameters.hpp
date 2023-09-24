@@ -6,7 +6,7 @@
 #define LOGGER_FLAG 1
 
 /* project parameters */
-#define LAMBDA 0.05
+#define LAMBDA 0.5
 #define ALPHA 3
 #define DELTA 100
 #define TIME_TO_TRIGGER 100 /* in miliseconds */

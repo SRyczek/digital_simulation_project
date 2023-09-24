@@ -27,6 +27,7 @@ public:
     double m_leastTime;
     bool m_changeStationFlag;
     double m_simulatorTime;
+    bool m_resetTimeToTriggerFlag;
     int m_counter[4];
 
 private:

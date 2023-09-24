@@ -18,6 +18,9 @@ int main()
     double baseFirstPosition = 0;
     double baseSecondPosition = 5000;
 
+    std::mt19937 generator(45218965);
+    std::uniform_real_distribution<double> distribution(5.0, 50.0);
+
     Base baseFirst(baseFirstPosition);
     Base baseSecond(baseSecondPosition);
     Simulator simulator;
@@ -31,7 +34,7 @@ int main()
         simulator.m_userRaportFlag = false;
         if (actualUser == nullptr)
         {
-            User *user = new User(simulator.m_simulatorTime);
+            User *user = new User(simulator.m_simulatorTime, distribution(generator));
             simulator.m_simulatorTime = simulator.m_userGeneratorTime;
             network.addUserToQueue(*user);
             simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
@@ -49,7 +52,7 @@ int main()
             }
             if (actualUser->getRaportTime() > simulator.m_userGeneratorTime)
             {
-                User *user = new User(simulator.m_simulatorTime);
+                User *user = new User(simulator.m_simulatorTime, distribution(generator));
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
                 network.addUserToQueue(*user);
                 simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
@@ -63,7 +66,7 @@ int main()
             }
             else if (actualUser->getRaportTime() == simulator.m_userGeneratorTime)
             {
-                User *user = new User(simulator.m_simulatorTime);
+                User *user = new User(simulator.m_simulatorTime, distribution(generator));
                 simulator.m_simulatorTime = simulator.m_userGeneratorTime;
                 network.addUserToQueue(*user);
                 simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
@@ -74,6 +77,7 @@ int main()
         }
         simulator.m_event = true;
         simulator.m_changeStationFlag = true;
+        simulator.m_resetTimeToTriggerFlag = true;
         while (simulator.m_event == true)
         {
             simulator.m_event = false;
@@ -93,29 +97,33 @@ int main()
                 simulator.m_event = true;
             }
             /* change station from first to second */
-            if (actualUser->getConnection() == BASE_FIRST_ENUM &&
-                simulator.m_userRaportFlag == true &&
+            if (simulator.m_userRaportFlag == true &&
                 actualUser->greaterThanPowerPlus(BASE_FIRST_NUM, ALPHA) &&
-                simulator.m_changeStationFlag == true)
+                simulator.m_changeStationFlag == true &&
+                actualUser->getConnection() == BASE_FIRST_ENUM)
             {
                 actualUser->updateTimeToTrigger(BASE_FIRST_NUM);
                 actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
-                simulator.m_event = true;
                 simulator.m_changeStationFlag = false;
+                simulator.m_resetTimeToTriggerFlag = false;
+                simulator.m_event = true;
             }
             /* change station from second to first */
-            else if (actualUser->getConnection() == BASE_SECOND_ENUM &&
-                     simulator.m_userRaportFlag == true &&
-                     actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, ALPHA) &&
-                     simulator.m_changeStationFlag == true)
+            if (simulator.m_userRaportFlag == true &&
+                actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, ALPHA) &&
+                simulator.m_changeStationFlag == true &&
+                actualUser->getConnection() == BASE_SECOND_ENUM)
             {
                 actualUser->updateTimeToTrigger(BASE_SECOND_NUM);
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
                 simulator.m_changeStationFlag = false;
+                simulator.m_resetTimeToTriggerFlag = false;
                 simulator.m_event = true;
             }
-            else if (simulator.m_userRaportFlag == true &&
-                     simulator.m_changeStationFlag == true)
+            /* reset TTT for both */
+            if (simulator.m_userRaportFlag == true &&
+                simulator.m_changeStationFlag == true &&
+                simulator.m_resetTimeToTriggerFlag == true)
             {
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
                 actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
@@ -150,6 +158,16 @@ int main()
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
                 simulator.m_counter[CONNECTION_BREAKUP]++;
+                simulator.m_userRaportFlag = false;
+                simulator.m_event = true;
+            }
+
+            if (size(network.m_userQueue) == 0 && 
+                size(network.m_activeUserListInSystem) == 0 && 
+                actualUser != nullptr)
+            {
+
+                actualUser = nullptr;
                 simulator.m_userRaportFlag = false;
                 simulator.m_event = true;
             }

@@ -28,7 +28,7 @@ typedef struct
 
 class User {
 public:
-    User(double t_simulatorTime);
+    User(double t_simulatorTime, double t_speed);
     ~User();
 
     double getPosition(void);
@@ -55,7 +55,6 @@ public:
 
     void calculatePower(double t_baseFirstPosition, double t_baseSecondPosition);
     bool greaterThanPowerPlus(int t_baseNumConnected, double t_parameter);
-    double calculateSpeed(void);
 
 private:
     double m_speed;

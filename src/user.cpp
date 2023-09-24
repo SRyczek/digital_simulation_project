@@ -4,12 +4,13 @@
 using namespace std;
 
 std::mt19937 generator(45218965);
+std::uniform_real_distribution<double> uniformDist(5.0, 50.0);
 std::normal_distribution<double> normDist(0, 4);
 
-User::User(double t_simulatorTime)
+User::User(double t_simulatorTime, double t_speed)
 {
     cout << "Create User" << endl;
-    m_speed = calculateSpeed();
+    m_speed = t_speed;
     m_position = 2000;
     updateRaportTime(t_simulatorTime);
     m_connection = BASE_FIRST_ENUM;
@@ -25,13 +26,6 @@ double User::getRaportTime(void)
     return m_raportTime;
 }
 
-
-double User::calculateSpeed(void)
-{
-    int range = 50 - 5 + 1;
-    int num = rand() % range + 5; /* random variable from the range of 5 - 50 */
-    return num * 0.02;            /* update location once to 20 ms */
-}
 
 void User::updatePosition(void)
 {
