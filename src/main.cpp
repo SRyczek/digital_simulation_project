@@ -39,6 +39,7 @@ int main()
             network.addUserToQueue(*user);
             simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
             actualUser = user;
+            actualUser->calculatePower(baseFirst.getPosition(), baseSecond.getPosition());
         }
         else
         {
@@ -72,8 +73,8 @@ int main()
                 simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
                 simulator.m_userRaportFlag = true;
             }
-            cout << "GT: " << simulator.m_userGeneratorTime << endl;
-            cout << "RT: " << actualUser->getRaportTime() << endl;
+            // cout << "GT: " << simulator.m_userGeneratorTime << endl;
+            // cout << "RT: " << actualUser->getRaportTime() << endl;
         }
         simulator.m_event = true;
         simulator.m_changeStationFlag = true;
@@ -135,25 +136,41 @@ int main()
                 actualUser->getTimeToTrigger(BASE_FIRST_NUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_FIRST_ENUM)
             {
+                ofstream file("../logger/logger.txt", ios::app);
+                if (!file.is_open())
+                {
+                    cerr << "Cannot open file" << endl;
+                    exit(-1);
+                }
+                //file << actualUser->getPosition() << endl;
                 actualUser->updateConnection(BASE_SECOND_ENUM);
                 simulator.m_counter[CHANGE_STATION_FTS]++;
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
-                actualUser->resetTimeToTrigger(BASE_SECOND_ENUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
-                actualUser->getTimeToTrigger(BASE_SECOND_ENUM) >= TIME_TO_TRIGGER_CONVERTED &&
+                actualUser->getTimeToTrigger(BASE_SECOND_NUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_SECOND_ENUM)
             {
+
+                ofstream file("../logger/logger.txt", ios::app);
+                if (!file.is_open())
+                {
+                    cerr << "Cannot open file" << endl;
+                    exit(-1);
+                }
+                //file << actualUser->getPosition() << endl;
+
                 actualUser->updateConnection(BASE_FIRST_ENUM);
                 simulator.m_counter[CHANGE_STATION_STF]++;
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
-                actualUser->resetTimeToTrigger(BASE_SECOND_ENUM);
+                actualUser->resetTimeToTrigger(BASE_SECOND_NUM);
                 simulator.m_event = true;
             }
             if (simulator.m_userRaportFlag == true &&
-                (actualUser->greaterThanPowerPlus(BASE_FIRST_NUM, DELTA) ||
-                 actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, DELTA)))
+            ((actualUser->greaterThanPowerPlus(BASE_FIRST_NUM, DELTA) && actualUser->getConnection() == BASE_SECOND_ENUM) ||
+            (actualUser->greaterThanPowerPlus(BASE_SECOND_NUM, DELTA) && actualUser->getConnection() == BASE_FIRST_ENUM)))
             {
                 network.removeUserFromSytem(*actualUser);
                 actualUser = &network.m_activeUserListInSystem.front();
@@ -162,8 +179,8 @@ int main()
                 simulator.m_event = true;
             }
 
-            if (size(network.m_userQueue) == 0 && 
-                size(network.m_activeUserListInSystem) == 0 && 
+            if (size(network.m_userQueue) == 0 &&
+                size(network.m_activeUserListInSystem) == 0 &&
                 actualUser != nullptr)
             {
 
@@ -181,7 +198,8 @@ int main()
         cout << "Simulator time: " << simulator.m_simulatorTime << endl;
         cout << "Kolejka: " << size(network.m_userQueue) << endl;
         cout << "System: " << size(network.m_activeUserListInSystem) << endl;
-
+        cout << "Position: " << actualUser->getPosition() << endl;
+        cout << "TTT: " << actualUser->getTimeToTrigger(BASE_FIRST_NUM) << endl;
 
         if (simulator.m_simulatorTime > logger.getLoggerTimer() && LOGGER_FLAG == 1)
         {
@@ -195,7 +213,7 @@ int main()
             logger.updateLoggerTimer();
         }
 
-        usleep(1000);
+    usleep(10);
     }
 
     return 0;

@@ -39,7 +39,8 @@ void Logger::addToFile(double t_simulatorTime, message_t t_message, int t_data)
         file << t_simulatorTime << ": Simulator start " << t_data << endl;
         break;
     case USER_IN_SYSTEM_ENUM:
-        file << t_simulatorTime << ": User in system: " << t_data << endl;
+        //file << t_simulatorTime << ": User in system: " << t_data << endl;
+        file << t_data << endl;
         break;
     case USER_IN_QUEUE_ENUM:
         file << t_simulatorTime << ": User in queue: " << t_data << endl;

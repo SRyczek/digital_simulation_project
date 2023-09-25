@@ -3,8 +3,7 @@
 
 using namespace std;
 
-random_device rd;
-mt19937 gen(rd());
+mt19937 gen(GAUSSIAN_SEED);
 exponential_distribution<> dist(LAMBDA);
 
 Simulator::Simulator()

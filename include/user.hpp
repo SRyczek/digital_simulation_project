@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib> 
 #include <random>
+#include <fstream>
 
 #include "parameters.hpp"
 

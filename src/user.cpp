@@ -3,8 +3,7 @@
 
 using namespace std;
 
-std::mt19937 generator(45218965);
-std::uniform_real_distribution<double> uniformDist(5.0, 50.0);
+std::mt19937 generator(EXPONENTIAL_SEED);
 std::normal_distribution<double> normDist(0, 4);
 
 User::User(double t_simulatorTime, double t_speed)
@@ -19,6 +18,7 @@ User::User(double t_simulatorTime, double t_speed)
 User::~User()
 {
     cout << "Deleted user" << endl;
+
 }
 
 double User::getRaportTime(void)
@@ -30,7 +30,7 @@ double User::getRaportTime(void)
 void User::updatePosition(void)
 {
     m_position += m_speed;
-    cout << "Actual position: " << m_position << endl;
+    //cout << "Actual position: " << m_position << endl;
 }
 
 void User::updateRaportTime(double t_simulatorTime)
@@ -91,8 +91,11 @@ void User::resetTimeToTrigger(int t_baseNum)
 
 void User::calculatePower(double t_baseFirstPosition, double t_baseSecondPosition)
 {
-    m_firstBase.power = (4.61 - 22 * log(abs(m_position - t_baseFirstPosition)) + normDist(generator));
-    m_secondBase.power = (4.61 - 22 * log(abs(m_position - t_baseSecondPosition)) + normDist(generator));
+    m_firstBase.power = (4.61 - 22 * log10(abs(m_position - t_baseFirstPosition)) + normDist(generator));
+    m_secondBase.power = (4.61 - 22 * log10(abs(m_position - t_baseSecondPosition)) + normDist(generator));
+
+    //cout << "Power first: " << m_firstBase.power << endl;
+    //cout << "Power second: " << m_secondBase.power << endl;
 }
 
 double User::getPosition(void)
@@ -130,7 +133,7 @@ void User::updateConnection(connection_t t_connection)
 bool User::greaterThanPowerPlus(int t_baseNumConnected, double t_parameter)
 {
 
-    if (t_baseNumConnected == BASE_FIRST_NUM)
+    if (t_baseNumConnected == BASE_SECOND_NUM)
     {
         if (m_firstBase.power > m_secondBase.power + t_parameter)
         {
@@ -141,7 +144,7 @@ bool User::greaterThanPowerPlus(int t_baseNumConnected, double t_parameter)
             return false;
         }
     }
-    else if (t_baseNumConnected == BASE_SECOND_NUM)
+    else if (t_baseNumConnected == BASE_FIRST_NUM)
     {
         if (m_secondBase.power > m_firstBase.power + t_parameter)
         {
