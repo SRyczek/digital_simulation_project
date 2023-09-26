@@ -29,6 +29,8 @@ int main()
     Logger logger;
     simulator.m_event = false;
 
+    int x = 1500;
+
     while (1)
     {
         simulator.m_userRaportFlag = false;
@@ -39,7 +41,6 @@ int main()
             network.addUserToQueue(*user);
             simulator.m_userGeneratorTime = simulator.m_simulatorTime + simulator.generateUserAppearanceTime();
             actualUser = user;
-            actualUser->calculatePower(baseFirst.getPosition(), baseSecond.getPosition());
         }
         else
         {
@@ -76,6 +77,7 @@ int main()
             // cout << "GT: " << simulator.m_userGeneratorTime << endl;
             // cout << "RT: " << actualUser->getRaportTime() << endl;
         }
+
         simulator.m_event = true;
         simulator.m_changeStationFlag = true;
         simulator.m_resetTimeToTriggerFlag = true;
@@ -136,13 +138,7 @@ int main()
                 actualUser->getTimeToTrigger(BASE_FIRST_NUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_FIRST_ENUM)
             {
-                ofstream file("../logger/logger.txt", ios::app);
-                if (!file.is_open())
-                {
-                    cerr << "Cannot open file" << endl;
-                    exit(-1);
-                }
-                //file << actualUser->getPosition() << endl;
+                
                 actualUser->updateConnection(BASE_SECOND_ENUM);
                 simulator.m_counter[CHANGE_STATION_FTS]++;
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
@@ -153,15 +149,6 @@ int main()
                 actualUser->getTimeToTrigger(BASE_SECOND_NUM) >= TIME_TO_TRIGGER_CONVERTED &&
                 actualUser->getConnection() == BASE_SECOND_ENUM)
             {
-
-                ofstream file("../logger/logger.txt", ios::app);
-                if (!file.is_open())
-                {
-                    cerr << "Cannot open file" << endl;
-                    exit(-1);
-                }
-                //file << actualUser->getPosition() << endl;
-
                 actualUser->updateConnection(BASE_FIRST_ENUM);
                 simulator.m_counter[CHANGE_STATION_STF]++;
                 actualUser->resetTimeToTrigger(BASE_FIRST_NUM);
@@ -195,25 +182,33 @@ int main()
             actualUser->updateRaportTime(simulator.m_simulatorTime);
         }
 
-        cout << "Simulator time: " << simulator.m_simulatorTime << endl;
-        cout << "Kolejka: " << size(network.m_userQueue) << endl;
-        cout << "System: " << size(network.m_activeUserListInSystem) << endl;
-        cout << "Position: " << actualUser->getPosition() << endl;
-        cout << "TTT: " << actualUser->getTimeToTrigger(BASE_FIRST_NUM) << endl;
+        // cout << "Simulator time: " << simulator.m_simulatorTime << endl;
+        // cout << "Kolejka: " << size(network.m_userQueue) << endl;
+        // cout << "System: " << size(network.m_activeUserListInSystem) << endl;
+        // cout << "Position: " << actualUser->getPosition() << endl;
+        // cout << "TTT: " << actualUser->getTimeToTrigger(BASE_FIRST_NUM) << endl;
 
-        if (simulator.m_simulatorTime > logger.getLoggerTimer() && LOGGER_FLAG == 1)
+        if ((simulator.m_counter[EXCEEDED_DISTANCE] + simulator.m_counter[CONNECTION_BREAKUP] > 1500) &&
+            (simulator.m_counter[EXCEEDED_DISTANCE] + simulator.m_counter[CONNECTION_BREAKUP]) % 10 == 0 &&
+            x < (simulator.m_counter[EXCEEDED_DISTANCE] + simulator.m_counter[CONNECTION_BREAKUP]))
         {
-            logger.addToFile(simulator.m_simulatorTime, USER_IN_SYSTEM_ENUM, size(network.m_activeUserListInSystem));
-            logger.addToFile(simulator.m_simulatorTime, USER_IN_QUEUE_ENUM, size(network.m_userQueue));
-            logger.addToFile(simulator.m_simulatorTime, CHANGE_STATION_FTS_ENUM, simulator.m_counter[CHANGE_STATION_FTS]);
-            logger.addToFile(simulator.m_simulatorTime, CHANGE_STATION_STF_ENUM, simulator.m_counter[CHANGE_STATION_STF]);
-            logger.addToFile(simulator.m_simulatorTime, EXCEEDED_DISTANCE_ENUM, simulator.m_counter[EXCEEDED_DISTANCE]);
-            logger.addToFile(simulator.m_simulatorTime, CONNECTION_BREAKUP_ENUM, simulator.m_counter[CONNECTION_BREAKUP]);
-            logger.addToFile(0, NEWLINE_ENUM, 0);
-            logger.updateLoggerTimer();
-        }
 
-    usleep(10);
+            logger.addToFile(simulator.m_simulatorTime, "Message",
+                             size(network.m_activeUserListInSystem),
+                             simulator.m_counter[EXCEEDED_DISTANCE] + simulator.m_counter[CONNECTION_BREAKUP],
+                             simulator.m_counter[CONNECTION_BREAKUP],
+                             simulator.m_counter[CHANGE_STATION_FTS],
+                             simulator.m_counter[CHANGE_STATION_STF]);
+            x+=10;
+        }
+        if (simulator.m_counter[EXCEEDED_DISTANCE] + simulator.m_counter[CONNECTION_BREAKUP] >= 5010)
+        {
+            cout << "Good" << endl;
+            exit(0);
+        }
+        
+
+    //usleep(10);
     }
 
     return 0;

@@ -7,99 +7,10 @@
     https://stackoverflow.com/questions/2627540/why-is-the-destructor-of-the-class-called-twice
 
 
-
-Nie laczymy zdarzen warunkowych z czasowymi, poniewaz wyjdzie cos w stylu if cos tam to if cos innego itd.
-Chodzi to zeby ify rosly nam w sposob pionowy nie poziomy.
-
-Zdarzenia czasowe (Hoffman powiedzia, ze tylko dwa czasowe sa)
-    1) Generowanie uzytkownikow.
-    2) Raport uzytkonika.
-Zdarzenia warunkowe:
-    1) Czy lista jest pusta
-    2) Czy lista ma miejsce na nowego uzytkonika
-    ..
-
-
-Jak rozumiem powinna byc jakas lista zegarow i przechodzimy tam, gdzie najszybciej ma byc wykonane.
-
-
-Wazne:
-Do kazdego uzytkownika w peltli trzeba sprawdzac czy jest w systemie.
-
-
-while(1)
-{
-    if(system nie jest pusty)
-    {
-        uzytkownik = wybierzUzytkownikaZNajmniejszymCzasemDoRaportu();
-    }
-    else 
-    {
-        uzytkownik = NULL;
-    }
-
-    wybierzNajmniejszyCzas();
-
-    while(event == false)
-    {
-
-        event = true;
-
-        if(najmniejszym czasem jest czas generowania uzytkownika)
-        {
-            wygeneruj uzytkownika;
-            dodaj go do kolejki;
-            event = false;
-        }
-        if(system nie jest pelny && kolejka nie jest pusta)
-        {
-            dodaj uzytkownika do systemu;
-            event = false;
-        }
-        if(moc drugiej stacji byla wiekza od pierwszej o alpha przez ttt && uzytkownik nie jest NULL) 
-        {
-            zmien stacje;
-            event = false;
-        }
-        if(jesli przekroczyl 3000 m && uzytkownik nie jest NULL) 
-        {
-            usun z systemu;
-            uzytkownik = NULL;
-            event = false;
-        }
-        if(moc odbierana od drugiej stacji jest wieksza o delta od pierwszej stacji && uzytownik nie jest NULL)
-        {
-            usun z systemu;
-            uzytkownik = NULL;
-            event = false;
-        }
-
-    }
-    Aktualizuj czas systemowy o czas ktory byl do najbliszego uzytkownika lub o czas do wygenerowania uzytkownika;
-    Aktualizuj pozycje wszystkich uzytkownikow o zmiane czasu systemowego;
-
-}
-
-
-User zostaje stworzony;
-raportTime = czasSystemowy + 20ms;
-
-Sprawdzanie czasow uzytkownikow:
- ktory uzytkownik ma najmniejszy (czasSystemowy - raportTime)
+2. Otwieranie pliku powinno byc zrobione raz, a w petli glownej jedynie przesylanie do niego danych.
+    W przypadku otwierania pliku w petli program nie dziala poprawnie.
 
 
 
 
 
-
-
-
-Jak rozwiazac moj problem:
-
-Mam pewien pomysl, w ktorym chodzi o to, aby usunac koncept actualUser i uzywania wskaznika, a uzyc po prostu
-zdejmowania z listy aktualnego user. Czyli np znalazlem juz usera z najmniejszym czasem, zdejmuje go z listy i przypisuje do np
-pomocniczego obiektu user i robie na nim operacje. Jesli operacje nie usuwaja go, odkadam go na liste i tyle. Jesli operacja ma go usunac
-to po prostu go usuwam i nie wrzucam do systemu.
-
-ToDo:
-Dokonczyc timeToTrigger

@@ -6,20 +6,20 @@
 #define LOGGER_FLAG 1
 
 /* project parameters */
-#define LAMBDA 0.28
-#define ALPHA 2
+#define LAMBDA 0.0065
+#define ALPHA 1
 #define DELTA 20
 #define TIME_TO_TRIGGER 100 /* in miliseconds */
 
 #define TIME_TO_TRIGGER_CONVERTED (TIME_TO_TRIGGER/20)
 
 /* other values */
-#define LOGGER_OFFSET 1000  /* in seconds */
+#define LOGGER_OFFSET 100  /* in seconds */
 
 /* Simulation 1 */
-#define GAUSSIAN_SEED 776360795
-#define EXPONENTIAL_SEED 665862717
-#define UNIFORM_SEED 434993880
+// #define GAUSSIAN_SEED 776360795
+// #define EXPONENTIAL_SEED 665862717
+// #define UNIFORM_SEED 434993880
 
 /* Simulation 2 */
 // #define GAUSSIAN_SEED 55964087
@@ -36,7 +36,7 @@
 // #define EXPONENTIAL_SEED 896557384
 // #define UNIFORM_SEED 886336905
 
-/* Simulation 5 */
+// /* Simulation 5 */
 // #define GAUSSIAN_SEED 143399081
 // #define EXPONENTIAL_SEED 5527008
 // #define UNIFORM_SEED 34817976
@@ -62,9 +62,9 @@
 // #define UNIFORM_SEED 676086238
 
 /* Simulation 10 */
-// #define GAUSSIAN_SEED 915921977
-// #define EXPONENTIAL_SEED 100167497
-// #define UNIFORM_SEED 279217007
+#define GAUSSIAN_SEED 915921977
+#define EXPONENTIAL_SEED 100167497
+#define UNIFORM_SEED 279217007
 
 
 

@@ -9,7 +9,7 @@ std::normal_distribution<double> normDist(0, 4);
 User::User(double t_simulatorTime, double t_speed)
 {
     cout << "Create User" << endl;
-    m_speed = t_speed;
+    m_speed = t_speed * 0.02;
     m_position = 2000;
     updateRaportTime(t_simulatorTime);
     m_connection = BASE_FIRST_ENUM;
